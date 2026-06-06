@@ -1,0 +1,45 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  CLIENTS SECTION（OUR CLIENTS）
+// ============================================================
+.clients {
+  padding: $section-pad-v 0;
+  background: $color-white;
+
+  .section-label,
+  .section-title {
+    text-align: center;
+  }
+
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 40px;
+    align-items: center;
+    justify-items: center;
+
+    @include tab { grid-template-columns: repeat(3, 1fr); }
+    @include sp { grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  }
+
+  &__logo-item {
+    @include flex-center;
+    padding: 12px 16px;
+    @include transition(opacity);
+
+    img {
+      max-height: 48px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      @include transition(filter opacity);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+  }
+}

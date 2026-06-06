@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+// ============================================================
+//  ミックスイン
+// ============================================================
+@mixin sp {
+  @media (max-width: #{$breakpoint-sp}) { @content; }
+}
+@mixin tab {
+  @media (max-width: #{$breakpoint-tab}) { @content; }
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin transition($prop: all, $dur: 0.3s, $ease: ease) {
+  transition: $prop $dur $ease;
+}

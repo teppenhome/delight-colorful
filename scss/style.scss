@@ -1,0 +1,33 @@
+// ============================================================
+//  DELIGHT - style.scss（エントリーファイル）
+//  WordPress オリジナルテーマ化を想定した構造
+//  BEM記法 + FLOCSS
+// ============================================================
+
+@use "foundation/variables" as *;
+@use "foundation/mixin" as *;
+
+@use "foundation/reset";
+@use "foundation/base";
+
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+
+@use "component/button";
+@use "component/section-title";
+@use "component/more-link";
+@use "component/side-nav";
+
+@use "page/hero";
+@use "page/about";
+@use "page/works";
+@use "page/service";
+@use "page/news";
+@use "page/contact";
+@use "page/company";
+
+@use "foundation/animation";
+
+@use "utility/spacing";
+@use "utility/helper";

@@ -1,0 +1,28 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// 「More →」リンク
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-en;
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-primary;
+  padding: 8px 0;
+  border-bottom: 2px solid $color-primary;
+  @include transition;
+
+  &__arrow {
+    @include transition(transform);
+  }
+
+  &:hover {
+    opacity: 1;
+    color: $color-accent2;
+    border-color: $color-accent2;
+
+    .more-link__arrow { transform: translateX(4px); }
+  }
+}

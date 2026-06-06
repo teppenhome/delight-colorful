@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DELIGHT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,400;0,500;0,700;0,800;0,900;1,500;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション">
+    <ul>
+      <li>
+        <a href="#works">
+          <span class="side-nav__en">WORKS</span>
+          <span class="side-nav__ja">制作実績</span>
+        </a>
+      </li>
+      <li>
+        <a href="#news">
+          <span class="side-nav__en">NEWS</span>
+          <span class="side-nav__ja">お知らせ</span>
+        </a>
+      </li>
+      <li>
+        <a href="#service">
+          <span class="side-nav__en">SERVICE</span>
+          <span class="side-nav__ja">できること</span>
+        </a>
+      </li>
+      <li>
+        <a href="#about">
+          <span class="side-nav__en">ABOUT US</span>
+          <span class="side-nav__ja">会社概要</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact">
+          <span class="side-nav__en">CONTACT</span>
+          <span class="side-nav__ja">お問い合わせ</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+      HERO SECTION
+    ============================================================ -->
+    <section class="hero" id="top">
+      <div class="hero__bg"></div>
+
+      <header class="header" id="header">
+        <div class="header__inner">
+          <h1 class="header__logo">
+            <a href="#">
+              <img src="images/logo.png" alt="">
+              <span class="header__logo-text">DELIGHT</span>
+            </a>
+          </h1>
+          <nav class="header__nav" id="globalNav">
+            <ul class="header__nav-list">
+              <li>
+                <a href="#works">
+                  <span class="header__nav-en">WORKS</span>
+                  <span class="header__nav-ja">制作実績</span>
+                </a>
+              </li>
+          
+              <li>
+                <a href="#news">
+                  <span class="header__nav-en">NEWS</span>
+                  <span class="header__nav-ja">お知らせ</span>
+                </a>
+              </li>
+          
+              <li>
+                <a href="#service">
+                  <span class="header__nav-en">SERVICE</span>
+                  <span class="header__nav-ja">サービス</span>
+                </a>
+              </li>
+          
+              <li>
+                <a href="#about">
+                  <span class="header__nav-en">ABOUT US</span>
+                  <span class="header__nav-ja">会社概要</span>
+                </a>
+              </li>
+          
+              <li>
+                <a href="#contact">
+                  <span class="header__nav-en">CONTACT</span>
+                  <span class="header__nav-ja">お問い合わせ</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <button class="header__hamburger" id="hamburger" aria-label="メニュー">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="hero__text">
+        <div class="hero__catch">
+          <img
+            src="images/hero-text.svg"
+            alt="想いをカタチに。信頼をその手に。"
+            width="240"
+            height="520"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      ABOUT SECTION (DELIGHTとは)
+    ============================================================ -->
+    <section class="about" id="about">
+      <div class="about__inner container">
+        <p class="section-label">What is DELIGHT ?</p>
+        <h2 class="section-title">
+          <span class="section-title__en">DELIGHT</span>とは
+        </h2>
+        <div class="about__body">
+          <div class="about__text">
+            <p>私たちは、たのしいと高品質なものを提供する、<br />販売商品、グッズの企画、製造販売会社です。<br />お客様が楽しむことを第一に、<br />そして私たち自身も一緒にたのしみながらものづくりを行います。</p>
+
+            <p>さまざまな企業から依頼を受け、<br />企画提案・デザイン・サンプル制作・量産・検品、物流までを<br />一括でお任せいただいております。<br />冒険的なものから堅実的なデザインまで幅広く対応可能です。</p>
+          </div>
+          <div class="about__link">
+            <a href="#" class="c-more-link">
+              <span class="c-more-link__text">More</span>
+              <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      WORKS SECTION
+    ============================================================ -->
+    <section class="works" id="works">
+      <div class="works__inner container">
+        <h2 class="section-title">
+          <span class="section-title__en__blue">WORKS</span>
+          <span class="section-title__ruby">制作実績</span>
+        </h2>
+    
+        <div class="works__slider-wrap">
+          <button
+            class="works__arrow works__arrow--prev"
+            id="worksPrev"
+            aria-label="前へ">
+          </button>
+          <div class="works__slider" id="worksSlider">
+    
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+01" alt="制作実績01">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+    
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+02" alt="制作実績02">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+    
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+03" alt="制作実績03">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+    
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+04" alt="制作実績04">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+    
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+05" alt="制作実績05">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+06" alt="制作実績05">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+07" alt="制作実績05">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+08" alt="制作実績05">
+                </div>
+                <div class="works__info">
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
+                  <div class="works__footer">
+                    <span class="works__tag">スポーツ</span>
+                    <span class="works__more">
+                      <span class="works__more-text">More</span>
+                      <img
+                        src="images/work-arrow.svg"
+                        alt=""
+                        class="works__more-arrow"
+                      >
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+    
+          </div>
+          <button
+            class="works__arrow works__arrow--next"
+            id="worksNext"
+            aria-label="次へ">
+          </button>
+        </div>     
+    
+        <div class="works__link">
+          <a href="#" class="c-more-link _center">
+            <span class="c-more-link__text">All</span>
+            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      NEWS SECTION
+    ============================================================ -->
+    <section class="news" id="news">
+      <div class="news__inner container">
+        <h2 class="section-title section-title--inline">
+          <span class="section-title__en__blue __large">NEWS</span>
+          <span class="section-title__ruby">お知らせ</span>
+        </h2>
+
+        <div class="news__grid">
+          <div class="news__scroll">
+            <ul class="news__list">
+        
+              <!-- WordPressループ -->
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+              <li class="news__item">
+                <a href="#">
+                  <div class="news__thumb">
+                    <img src="https://placehold.co/80x60/eceff1/cfd8dc?text=img" alt="">
+                  </div>
+          
+                  <div class="news__body">
+                    <span class="news__date">2020/00/00</span>
+                    <span class="news__tag news__tag--blue">カテゴリ</span>
+          
+                    <p class="news__title">
+                      【〇〇】ああああああああああああああああああああああああああああああああああああ
+                    </p>
+                  </div>
+                </a>
+              </li>
+          
+            </ul>
+          </div>
+        </div>
+
+        <div class="news__more-wrap">
+          <a href="#" class="c-more-link">
+            <span class="c-more-link__text">More</span>
+            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      SERVICE SECTION (WORK FLOW)
+    ============================================================ -->
+    <section class="service" id="service">
+      <div class="service__inner container">
+        <h2 class="section-title section-title">
+          <span class="section-title__en__blue">WORK FLOW</span>
+          <span class="section-title__ruby">ご依頼の流れ</span>
+        </h2>
+        <p class="service__lead">私たちの仕事は、様々な企業からの依頼を受け、オリジナルのアイデアの商品を提供することです。<br />「なにかユニークな商品を考えて」そんな漠然とした依頼でもまったく問題ありません。<br />ゼロから企画し、完成した商品をお届けするところまで、トータルでサポートできることがDelightの良いところです。</p>
+
+        <!-- WordPressループ/ACFブロック想定 -->
+        <div class="service__steps">
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow01.png" alt="PLANNING">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.01</span>
+              <h3 class="service__step-title">PLANNING</h3>
+              <p>しっかりとヒアリングとリサーチをした後、<br />企画案をご提出 「こんな感じにしたい」を一緒に整理します。<br />イメージが固まっていなくてもお気軽にご相談ください。<br />視察に行き、売り場の雰囲気を調査しに行くことも力を入れております。</p>
+            </div>
+          </div>
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow02.png" alt="DIRECTION">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.02</span>
+              <h3 class="service__step-title">DIRECTION</h3>
+              <p>ミーティング後は、先方の担当者との綿密なデザイン制作がすすんでいく。<br>現在のスタイルから外れずにデザインになるよう制作します。<br>オリジナルサイトに必要なお客様のデザインをサービスにご活躍ください。</p>
+            </div>
+          </div>
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow03.png" alt="SAMPLE">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.03</span>
+              <h3 class="service__step-title">SAMPLE</h3>
+              <p>最初のサービスから1週間以内で制作します。お客様のご負担なく、<br>状況確認ができ、修正や更新に最善を尽くして、<br>品質を確認しながら1週間以内に制作を提案します。</p>
+            </div>
+          </div>
+
+          <div class="service__step service__step--full">
+            <div class="service__step-img service__step-img--placeholder">
+              <span>イラスト予定</span>
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.04</span>
+              <h3 class="service__step-title">DELIVER &amp; SUPPORT</h3>
+              <p>商品のサービスから1週間以上経ったデリバリー後もサポートします。<br>品質最終版のサポートとしてクライアントにご活躍できる<br>品質を高めており、お客様のリクエストに素早く対応しながら<br>速やかにご確認いただける体制を整えています。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      CLIENTS SECTION (OUR CLIENTS)
+    ============================================================ -->
+    <section class="clients" id="clients">
+      <div class="clients__inner container">
+        <h2 class="section-title section-title">
+          <span class="section-title__en__blue">OUR CLIENTS</span>
+          <span class="section-title__ruby">制作実績</span>
+        </h2>
+
+        <!-- 仮置き -->
+        <div class="works__logo-sample">
+          <img src="images/clients-image.png" alt="制作実績ロゴ一覧">
+        </div>
+
+        <!-- WordPressカスタムフィールドやACFでロゴ管理を想定 -->
+        <!-- <div class="clients__logos">
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=KAO" alt="KAO">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=JAL" alt="JAL">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=伊藤園" alt="伊藤園">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=Client" alt="Client">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=SEIUR+SIBON" alt="SEIUR SIBON">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=TAKARA+TOMY" alt="TAKARA TOMY">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=LOTTERIA" alt="LOTTERIA">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=PEACH+JOHN" alt="PEACH JOHN">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=PINK+HOUSE" alt="PINK HOUSE">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=大東建託" alt="大東建託">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=Jantique" alt="Jantique">
+          </div>
+          <div class="clients__logo-item">
+            <img src="https://placehold.co/120x50/ffffff/555?text=Client" alt="Client">
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+      CONTACT SECTION
+    ============================================================ -->
+    <section class="contact" id="contact">
+      <div class="contact__inner container">
+        <h2 class="section-title section-title">
+          <span class="section-title__en__blue __large">CONTACT</span>
+          <span class="section-title__ruby">お問い合わせ</span>
+        </h2>
+        <p class="contact__lead">「おもしろい商品を考えて欲しい」「こんなデザインの商品はできる？」など、<br />どんなご依頼、ご相談でも大歓迎です。ぜひお気軽にお問い合わせください。<br />以下のお問い合わせフォームよりご連絡ください。</p>
+
+        <!-- WordPressではContact Form 7やWPFormsなどで置き換え -->
+        <form class="contact__form" id="contactForm" novalidate>
+
+          <div class="contact__row">
+            <label class="contact__label">お問い合わせ項目</label>
+            <div class="contact__checkboxes">
+              <label><input type="checkbox" name="type" value="service"> サービスについて</label>
+              <label><input type="checkbox" name="type" value="works"> お見積り</label>
+              <label><input type="checkbox" name="type" value="recruit"> ご相談</label>
+              <label><input type="checkbox" name="type" value="media"> 取材</label>
+              <label><input type="checkbox" name="type" value="other"> その他</label>
+            </div>
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="company_name">お名前 <span class="required">必須</span></label>
+            <input type="text" id="company_name" name="company_name" class="contact__input" placeholder="例）横浜 太郎">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="name">ふりがな</label>
+            <input type="text" id="name" name="name" class="contact__input" placeholder="例）よこはまたろう">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="address">会社・団体・所属先</label>
+            <input type="text" id="address" name="address" class="contact__input" placeholder="例）株式会社DELIGHT">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="title">役職</label>
+            <input type="text" id="title" name="title" class="contact__input" placeholder="例）マーケティング部">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel" class="contact__input" placeholder="例）00-0000-0000">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="email">メールアドレス <span class="required">必須</span></label>
+            <input type="email" id="email" name="email" class="contact__input" placeholder="例）delight@example.com">
+          </div>
+
+          <div class="contact__row">
+            <label class="contact__label" for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" class="contact__textarea" rows="6" placeholder="お問い合わせ内容をご記入ください"></textarea>
+          </div>
+
+          <div class="contact__row contact__row--privacy">
+            <label class="contact__privacy-check">
+              <input type="checkbox" name="privacy" id="privacyCheck">
+              <span>個人情報の取り扱いについて同意します。</span>
+            </label>
+          </div>
+
+          <div class="contact__submit-wrap">
+            <button type="submit" class="contact__submit">送信する</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ページトップボタン -->
+      <a href="#top" class="page-top" id="pageTop" aria-label="ページトップへ">
+        <span>Top</span>
+        <span class="page-top__arrow">↑</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer class="footer">
+
+    <div class="footer__inner container">
+  
+      <div class="footer__head">
+        <p class="footer__index">Index</p>
+        <div class="to-top-wrap">
+          <a href="#top" class="c-more-link c-more-link--top">
+            <span class="c-more-link__text">Top Page</span>
+            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+          </a>
+        </div>
+      </div>
+  
+      <div class="footer__line"></div>
+
+      <div class="footer__content">
+        <div class="footer__nav">
+    
+          <div class="footer__col">
+            <a href="#about"  class="footer__title">ABOUT</a>
+            <ul>
+              <li><a href="#">会社について</a></li>
+              <li><a href="#">仕事の流れ</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer__col">
+            <a href="#news" class="footer__title">NEWS</a>
+            <ul>
+              <li><a href="#">お知らせ一覧</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer__col">
+            <a href="#company" class="footer__title">COMPANY</a>
+            <ul>
+              <li><a href="#">会社概要</a></li>
+              <li><a href="#">企業理念</a></li>
+              <li><a href="#">アクセス</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer__col footer__col--works">
+            <a href="#works" class="footer__title">WORKS</a>
+            <ul>
+              <li><a href="#">業務実績一覧</a></li>
+            </ul>
+          </div>
+    
+          <div class="footer__col footer__col--service">
+            <a href="#service" class="footer__title">SERVICE</a>
+          </div>
+
+          <a href="#contact" class="footer__recruit">
+            RECRUIT
+          </a>
+    
+        </div>
+      </div>
+        
+  
+    </div>
+  
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

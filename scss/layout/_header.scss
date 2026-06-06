@@ -1,0 +1,163 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  HEADER（ヒーロー左上にロゴを重ねて配置）
+// ============================================================
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+  border-bottom: none;
+
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 40px 48px 0 64px;
+    height: auto;
+    position: relative;
+
+    @include sp {
+      align-items: center;
+      padding: 20px;
+    }
+  }
+
+  &__logo {
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      height: 48px;
+      width: auto;
+      display: block;
+
+      &.is-loaded + .header__logo-text {
+        display: none;
+      }
+    }
+
+    &-text {
+      font-family: $font-en;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: $color-primary;
+      line-height: 1;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    right: 48px;
+    top: 300px;
+    z-index: 20;
+
+    @include sp {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: $color-white;
+      padding: 80px 20px 40px;
+      overflow-y: auto;
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  
+    @include sp {
+      align-items: flex-start;
+      gap: 20px;
+    }
+  
+    li a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: $color-text;
+      line-height: 1.2;
+      transition: opacity 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        color: $color-primary;
+        opacity: 1;
+      }
+    }
+  }
+  
+  &__nav-en {
+    display: block;
+    font-family: $font-en;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+  
+  &__nav-ja {
+    display: block;
+    margin-top: 6px;
+    font-family: $font-ja;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    color: #0F65A3;
+    line-height: 1;
+  }
+
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include sp {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      height: 2px;
+      background: $color-text;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    &.is-active {
+      span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}

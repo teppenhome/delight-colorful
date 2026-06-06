@@ -1,0 +1,102 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  SERVICE SECTION (WORK FLOW)
+// ============================================================
+.service {
+  padding: $section-pad-v 0;
+
+  .section-title {
+    text-align: center;
+  }
+
+  &__lead {
+    text-align: center;
+    font-size: 16px;
+    color: $color-text;
+    line-height: 1.9;
+    margin-bottom: 60px;
+    font-weight: 700;
+
+    @include sp { text-align: left; }
+  }
+
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__step {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: flex-start;
+    background: $color-white;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    @include transition(box-shadow);
+
+    &:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.08); }
+
+    @include sp {
+      grid-template-columns: 1fr;
+      padding: 24px;
+      gap: 20px;
+    }
+
+    // Step.04 は横幅いっぱい（プレースホルダーのみ）
+    &--full {
+      .service__step-img--placeholder {
+        @include flex-center;
+        background: $color-bg-light;
+        border-radius: 8px;
+        height: 130px;
+        font-size: 13px;
+        color: $color-text-sub;
+        border: 2px dashed $color-border;
+      }
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: $color-text;
+      font-weight: 700;
+    }
+  }
+
+  &__step-img {
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__step-label {
+    display: inline-block;
+    font-family: $font-en;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: $color-white;
+    background: #0F65A3;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-style: italic;
+  }
+
+  &__step-title {
+    font-family: $font-en;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: $color-text;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+}

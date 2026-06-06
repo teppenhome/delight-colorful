@@ -1,0 +1,76 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  SIDE NAV（ヒーロー通過後に左側固定表示）
+// ============================================================
+.side-nav {
+  position: fixed;
+  left: 40px;
+  top: 50%;
+  transform: translateY(calc(-50% + 20px)) translateX(-16px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.7s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s;
+  }
+
+  @include sp { display: none; }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: $color-text;
+    line-height: 1.2;
+    @include transition;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__en {
+    display: block;
+    font-family: $font-en;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.12em;
+    color: $color-text;
+    line-height: 1;
+  }
+
+  &__ja {
+    display: block;
+    margin-top: 6px;
+    font-family: $font-ja;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    color: $color-primary;
+    line-height: 1;
+  }
+}

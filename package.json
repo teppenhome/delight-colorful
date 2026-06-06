@@ -1,0 +1,12 @@
+{
+  "name": "delight-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "sass --watch --poll scss:css --style=expanded",
+    "build:css": "sass scss/style.scss:css/style.css --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

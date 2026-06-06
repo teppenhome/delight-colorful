@@ -1,0 +1,63 @@
+@use "../foundation/variables" as *;
+
+// セクション共通ラベル（英語小見出し）
+.section-label {
+  font-family: $font-en;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #0F65A3;
+  margin-bottom: 4px;
+}
+
+// セクション共通タイトル
+.section-title {
+  font-family: $font-ja;
+  font-size: 48px;
+  font-weight: 700;
+  color: #343434;
+  margin-bottom: 40px;
+  line-height: 1.3;
+
+  &__en {
+    font-family: $font-en;
+    letter-spacing: 0.1em;
+
+    &__blue {
+      color: #0F65A3;
+      font-family: $font-en;
+      letter-spacing: 0.1em;
+
+      &.__large {
+        font-size: 64px;
+      }
+    }
+  }
+
+  &__ruby {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #343434;
+    line-height: 1;
+    letter-spacing: 0.2rem;
+  }
+
+  &--inline {
+    .section-title__ruby {
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 12px;
+      letter-spacing: 0.1em;
+      vertical-align: middle;
+    }
+  }
+
+  // 英語タイトルのとき
+  &--en {
+    font-family: $font-en;
+    font-size: clamp(28px, 4vw, 48px);
+    letter-spacing: 0.05em;
+  }
+}

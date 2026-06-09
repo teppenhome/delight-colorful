@@ -17,6 +17,7 @@ $works-arrow-size:    55px;
 
   padding: $section-pad-v 0;
   position: relative;
+  overflow-x: clip;
 
   &__inner {
     position: relative;

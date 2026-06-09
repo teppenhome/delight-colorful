@@ -7,13 +7,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,400;0,500;0,700;0,800;0,900;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,500;1,700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
   <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション">
+    <h1 class="header__logo--side">
+      <a href="#">
+        <img src="images/logo.png" alt="DELIGHT">
+      </a>
+    </h1>
     <ul>
       <li>
         <a href="#works">
@@ -40,9 +45,8 @@
         </a>
       </li>
       <li>
-        <a href="#contact">
-          <span class="side-nav__en">CONTACT</span>
-          <span class="side-nav__ja">お問い合わせ</span>
+        <a href="#contact" class="header__nav-contact">
+          <img src="images/contact.png" alt="お問い合わせ">
         </a>
       </li>
     </ul>
@@ -60,8 +64,7 @@
         <div class="header__inner">
           <h1 class="header__logo">
             <a href="#">
-              <img src="images/logo.png" alt="">
-              <span class="header__logo-text">DELIGHT</span>
+              <img src="images/logo.png" alt="DELIGHT">
             </a>
           </h1>
           <nav class="header__nav" id="globalNav">
@@ -95,9 +98,8 @@
               </li>
           
               <li>
-                <a href="#contact">
-                  <span class="header__nav-en">CONTACT</span>
-                  <span class="header__nav-ja">お問い合わせ</span>
+                <a href="#contact" class="header__nav-contact">
+                  <img src="images/contact.png" alt="お問い合わせ">
                 </a>
               </li>
             </ul>
@@ -111,10 +113,8 @@
       <div class="hero__text">
         <div class="hero__catch">
           <img
-            src="images/hero-text.svg"
+            src="images/hero-text02.png"
             alt="想いをカタチに。信頼をその手に。"
-            width="240"
-            height="520"
           >
         </div>
       </div>
@@ -131,7 +131,7 @@
         </h2>
         <div class="about__body">
           <div class="about__text">
-            <p>私たちは、たのしいと高品質なものを提供する、<br />販売商品、グッズの企画、製造販売会社です。<br />お客様が楽しむことを第一に、<br />そして私たち自身も一緒にたのしみながらものづくりを行います。</p>
+            <p>私たちは、たのしいと高品質なものを提供する、<br />販売商品、グッズの企画、製造販売会社です。<br />第一にお客様が楽しむこと、第二に私たち自身も楽しむこと。<br />たのしみながらものづくりを行うことを大切にしています。</p>
 
             <p>さまざまな企業から依頼を受け、<br />企画提案・デザイン・サンプル制作・量産・検品、物流までを<br />一括でお任せいただいております。<br />冒険的なものから堅実的なデザインまで幅広く対応可能です。</p>
           </div>
@@ -360,6 +360,68 @@
             <span class="c-more-link__text">All</span>
             <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      SERVICE SECTION (WORK FLOW)
+    ============================================================ -->
+    <section class="service" id="service">
+      <div class="service__inner container">
+        <h2 class="section-title section-title">
+          <span class="section-title__en__blue">SERVICE FLOW</span>
+          <span class="section-title__ruby">ご依頼の流れ</span>
+        </h2>
+        <p class="service__lead">私たちの仕事は、様々な企業からの依頼を受け、オリジナルのアイデアの商品を提供することです。<br />「なにかユニークな商品を考えて」そんな漠然とした依頼でもまったく問題ありません。<br />ゼロから企画し、完成した商品をお届けするところまで、トータルでサポートできることがDelightの良いところです。</p>
+
+        <!-- WordPressループ/ACFブロック想定 -->
+        <div class="service__steps">
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow01_2.png" alt="PLANNING">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.01</span>
+              <h3 class="service__step-title">PLANNING</h3>
+              <p>しっかりとヒアリングとリサーチをした後、<br />企画案をご提出 「こんな感じにしたい」を一緒に整理します。<br />イメージが固まっていなくてもお気軽にご相談ください。<br />視察に行き、売り場の雰囲気を調査しに行くことも力を入れております。</p>
+            </div>
+          </div>
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow02_2.png" alt="DIRECTION">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.02</span>
+              <h3 class="service__step-title">DIRECTION</h3>
+              <p>ヒアリング内容をもとに、商品の企画提案からデザイン制作まで一貫して行います。 コンセプト設計を大切にし、使う人の心が動くような、<br>オリジナリティと品質を兼ね備えたデザインをご提案します。</p>
+            </div>
+          </div>
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow03_2.png" alt="SAMPLE">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.03</span>
+              <h3 class="service__step-title">SAMPLE</h3>
+              <p>完成イメージをより具体的に確認いただけるよう、サンプル制作を行います。<br>素材感や色味、サイズ感など細部まで調整しながら、<br>理想の仕上がりへ近づけていきます。</p>
+            </div>
+          </div>
+
+          <div class="service__step">
+            <div class="service__step-img">
+              <img src="images/workflow04_2.png" alt="DELIVER &amp; SUPPORT">
+            </div>
+            <div class="service__step-body">
+              <span class="service__step-label">Step.04</span>
+              <h3 class="service__step-title">DELIVER &amp; SUPPORT</h3>
+              <p>品質管理を徹底し、安心してお届けできる状態で納品いたします。<br>納品後も、お客様のブランドや商品がより良く伝わるよう、<br>継続的なサポートを心がけています。</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -656,76 +718,13 @@
         </div>
 
         <div class="news__more-wrap">
-          <a href="#" class="c-more-link">
+          <a href="#" class="c-more-link  c-more-link--lower">
             <span class="c-more-link__text">More</span>
             <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
           </a>
         </div>
       </div>
     </section>
-
-    <!-- ============================================================
-      SERVICE SECTION (WORK FLOW)
-    ============================================================ -->
-    <section class="service" id="service">
-      <div class="service__inner container">
-        <h2 class="section-title section-title">
-          <span class="section-title__en__blue">WORK FLOW</span>
-          <span class="section-title__ruby">ご依頼の流れ</span>
-        </h2>
-        <p class="service__lead">私たちの仕事は、様々な企業からの依頼を受け、オリジナルのアイデアの商品を提供することです。<br />「なにかユニークな商品を考えて」そんな漠然とした依頼でもまったく問題ありません。<br />ゼロから企画し、完成した商品をお届けするところまで、トータルでサポートできることがDelightの良いところです。</p>
-
-        <!-- WordPressループ/ACFブロック想定 -->
-        <div class="service__steps">
-
-          <div class="service__step">
-            <div class="service__step-img">
-              <img src="images/workflow01.png" alt="PLANNING">
-            </div>
-            <div class="service__step-body">
-              <span class="service__step-label">Step.01</span>
-              <h3 class="service__step-title">PLANNING</h3>
-              <p>しっかりとヒアリングとリサーチをした後、<br />企画案をご提出 「こんな感じにしたい」を一緒に整理します。<br />イメージが固まっていなくてもお気軽にご相談ください。<br />視察に行き、売り場の雰囲気を調査しに行くことも力を入れております。</p>
-            </div>
-          </div>
-
-          <div class="service__step">
-            <div class="service__step-img">
-              <img src="images/workflow02.png" alt="DIRECTION">
-            </div>
-            <div class="service__step-body">
-              <span class="service__step-label">Step.02</span>
-              <h3 class="service__step-title">DIRECTION</h3>
-              <p>ミーティング後は、先方の担当者との綿密なデザイン制作がすすんでいく。<br>現在のスタイルから外れずにデザインになるよう制作します。<br>オリジナルサイトに必要なお客様のデザインをサービスにご活躍ください。</p>
-            </div>
-          </div>
-
-          <div class="service__step">
-            <div class="service__step-img">
-              <img src="images/workflow03.png" alt="SAMPLE">
-            </div>
-            <div class="service__step-body">
-              <span class="service__step-label">Step.03</span>
-              <h3 class="service__step-title">SAMPLE</h3>
-              <p>最初のサービスから1週間以内で制作します。お客様のご負担なく、<br>状況確認ができ、修正や更新に最善を尽くして、<br>品質を確認しながら1週間以内に制作を提案します。</p>
-            </div>
-          </div>
-
-          <div class="service__step service__step--full">
-            <div class="service__step-img service__step-img--placeholder">
-              <span>イラスト予定</span>
-            </div>
-            <div class="service__step-body">
-              <span class="service__step-label">Step.04</span>
-              <h3 class="service__step-title">DELIVER &amp; SUPPORT</h3>
-              <p>商品のサービスから1週間以上経ったデリバリー後もサポートします。<br>品質最終版のサポートとしてクライアントにご活躍できる<br>品質を高めており、お客様のリクエストに素早く対応しながら<br>速やかにご確認いただける体制を整えています。</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ============================================================
       CLIENTS SECTION (OUR CLIENTS)
     ============================================================ -->
@@ -870,12 +869,12 @@
   
       <div class="footer__head">
         <p class="footer__index">Index</p>
-        <div class="to-top-wrap">
+        <!-- <div class="to-top-wrap">
           <a href="#top" class="c-more-link c-more-link--top">
             <span class="c-more-link__text">Top Page</span>
             <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
           </a>
-        </div>
+        </div> -->
       </div>
   
       <div class="footer__line"></div>
@@ -927,8 +926,18 @@
         
   
     </div>
+
+    <div class="footer__copyright">
+      <div class="container">
+        <p>&copy; DELIGHT All rights reserved</p>
+      </div>
+    </div>
   
   </footer>
+
+  <a href="#top" id="pageTop" class="page-top" aria-label="ページ上部へ戻る">
+    <img src="images/to-top.png" alt="トップへ戻る">
+  </a>
 
   <script src="js/main.js"></script>
 </body>

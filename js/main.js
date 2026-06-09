@@ -84,19 +84,34 @@ function initHamburger() {
 //  ヒーローセクション通過後に左側固定ナビを表示
 // ============================================================
 function initSideNav() {
-  const hero    = document.querySelector('.hero');
+  const hero = document.querySelector('.hero');
+  const contact = document.querySelector('.contact');
   const sideNav = document.getElementById('sideNav');
-  if (!hero || !sideNav) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      sideNav.classList.toggle('is-visible', !entry.isIntersecting);
-    });
-  }, {
-    threshold: 0,
+  if (!hero || !contact || !sideNav) return;
+
+  let heroVisible = true;
+  let contactVisible = false;
+
+  const updateNav = () => {
+    sideNav.classList.toggle(
+      'is-visible',
+      !heroVisible && !contactVisible
+    );
+  };
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    heroVisible = entries[0].isIntersecting;
+    updateNav();
   });
 
-  observer.observe(hero);
+  const contactObserver = new IntersectionObserver((entries) => {
+    contactVisible = entries[0].isIntersecting;
+    updateNav();
+  });
+
+  heroObserver.observe(hero);
+  contactObserver.observe(contact);
 }
 
 
@@ -108,36 +123,58 @@ function initWorksSlider() {
   const slider  = document.getElementById('worksSlider');
   const btnPrev = document.getElementById('worksPrev');
   const btnNext = document.getElementById('worksNext');
-  if (!slider || !btnPrev || !btnNext) return;
 
-  const worksSection = slider.closest('.works');
-  const styles       = worksSection ? getComputedStyle(worksSection) : null;
-  const CARD_WIDTH   = parseFloat(styles?.getPropertyValue('--works-card-width')) || 300;
-  const GAP          = parseFloat(styles?.getPropertyValue('--works-card-gap')) || 20;
-  const VISIBLE      = parseInt(styles?.getPropertyValue('--works-visible-cards'), 10) || 3;
+  if (!slider || !btnPrev || !btnNext) return;
 
   let currentIndex = 0;
 
   const getItems = () => Array.from(slider.querySelectorAll('.works__item'));
 
-  const getVisible = () => VISIBLE;
+  const getGap = () => {
+    const styles = getComputedStyle(slider);
+    return parseFloat(styles.columnGap || styles.gap) || 0;
+  };
+
+  const getCardWidth = () => {
+    const firstItem = slider.querySelector('.works__item');
+    return firstItem ? firstItem.getBoundingClientRect().width : 0;
+  };
+
+  const getVisible = () => {
+    const worksSection = slider.closest('.works');
+    const styles = worksSection ? getComputedStyle(worksSection) : null;
+    return parseInt(styles?.getPropertyValue('--works-visible-cards'), 10) || 3;
+  };
 
   const update = () => {
-    const items   = getItems();
-    const visible = getVisible();
-    const max     = Math.max(0, items.length - visible);
-    currentIndex  = Math.min(Math.max(currentIndex, 0), max);
+    const items     = getItems();
+    const visible   = getVisible();
+    const max       = Math.max(0, items.length - visible);
+    const cardWidth = getCardWidth();
+    const gap       = getGap();
 
-    slider.style.transform = `translateX(-${(CARD_WIDTH + GAP) * currentIndex}px)`;
+    currentIndex = Math.min(Math.max(currentIndex, 0), max);
+
+    const moveX = (cardWidth + gap) * currentIndex;
+
+    slider.style.transform = `translateX(-${moveX}px)`;
 
     btnPrev.disabled = currentIndex === 0;
     btnNext.disabled = currentIndex >= max;
+
     btnPrev.style.opacity = btnPrev.disabled ? '0.3' : '1';
     btnNext.style.opacity = btnNext.disabled ? '0.3' : '1';
   };
 
-  btnPrev.addEventListener('click', () => { currentIndex--; update(); });
-  btnNext.addEventListener('click', () => { currentIndex++; update(); });
+  btnPrev.addEventListener('click', () => {
+    currentIndex--;
+    update();
+  });
+
+  btnNext.addEventListener('click', () => {
+    currentIndex++;
+    update();
+  });
 
   window.addEventListener('resize', () => {
     currentIndex = 0;
@@ -157,7 +194,6 @@ function initScrollReveal() {
   // 既存の要素に付与 + 各セクションの主要要素に自動付与
   const targets = [
     '.about__inner',
-    '.works__item',
     '.service__step',
     '.clients__logo-item',
     '.contact__form',
@@ -188,7 +224,6 @@ function initScrollReveal() {
 
 
 // ============================================================
-//  CONTACT SECTION
 //  ページトップボタンの表示 / 非表示
 // ============================================================
 function initPageTop() {
@@ -196,16 +231,12 @@ function initPageTop() {
   if (!btn) return;
 
   const toggle = () => {
-    btn.style.opacity  = window.scrollY > 400 ? '1' : '0';
-    btn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+    btn.classList.toggle('is-visible', window.scrollY > 400);
   };
 
-  // 初期は非表示
-  btn.style.opacity = '0';
-  btn.style.transition = 'opacity 0.3s ease';
-  btn.style.pointerEvents = 'none';
-
   window.addEventListener('scroll', toggle, { passive: true });
+
+  toggle(); // 初回実行
 }
 
 

@@ -42,14 +42,15 @@
         display: none;
       }
     }
+  }
 
-    &-text {
-      font-family: $font-en;
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      color: $color-primary;
-      line-height: 1;
+  &__logo--side {
+    margin-bottom: 30px;
+
+    img {
+      height: 32px;
+      width: auto;
+      display: block;
     }
   }
 
@@ -98,6 +99,16 @@
         color: $color-primary;
         opacity: 1;
       }
+    }
+  }
+
+  &__nav-contact {
+    display: block;
+  
+    img {
+      display: block;
+      width: 72px;
+      height: auto;
     }
   }
   

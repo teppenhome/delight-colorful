@@ -1,0 +1,28 @@
+@use "../foundation/variables" as *;
+
+// ============================================================
+//  ABOUT SECTION
+// ============================================================
+.about {
+  padding: $section-pad-v 0;
+  background: $color-white;
+
+  &__text {
+    width: fit-content;
+    margin: 0 auto;
+    padding-top: 40px;
+    
+    p {
+      font-size: 18px;
+      line-height: 2;
+      color: $color-text;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+  }
+
+  &__link {
+    margin-top: 120px;
+    text-align: right;
+  }
+}

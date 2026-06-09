@@ -1,0 +1,44 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  HERO SECTION
+// ============================================================
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url(../images/hero-image_blue.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: min(1400px, 100%);
+    pointer-events: none;
+  }
+
+  &__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    @include sp {
+      position: static;
+      transform: none;
+    }
+  }
+
+  &__catch {
+    margin: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    }
+  }
+}

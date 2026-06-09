@@ -1,0 +1,223 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  CONTACT SECTION
+// ============================================================
+.contact {
+  padding: $section-pad-v 0;
+  position: relative;
+
+  .section-label,
+  .section-title {
+    text-align: center;
+  }
+
+  &__lead {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: $color-text;
+    line-height: 1.9;
+    margin-bottom: 48px;
+
+    @include sp { text-align: left; }
+  }
+
+  &__form {
+    max-width: 1020px;
+    margin: 0 auto;
+    background: $color-white;
+    padding: 0 40px;
+
+    @include sp { padding: 24px 20px; }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+
+    @include sp {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    &--privacy {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      margin-top: 40px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__label {
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-text;
+    padding-top: 10px;
+
+    @include sp { padding-top: 0; }
+  }
+
+  .required {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: $color-white;
+    background: #e53935;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+
+      width: 20px;
+      height: 20px;
+
+      border: 2px solid #8B8B8B;
+      border-radius: 50%;
+
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+
+      &:checked {
+        border-color: #3AA0FF;
+        background: #3AA0FF;
+      }
+
+      &:checked::after {
+        content: "";
+        position: absolute;
+   
+        width: 10px;
+        height: 10px;
+
+        background: #ffffff;
+        border-radius: 50%;
+
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: $font-ja;
+    font-size: 14px;
+    color: $color-text;
+    background: #ECF3F8;
+    @include transition(border-color, box-shadow);
+    outline: none;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.08);
+      background: $color-white;
+    }
+
+    &::placeholder { color: #bbb; }
+  }
+
+  &__textarea { resize: vertical; }
+
+  &__privacy-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-text;
+    cursor: pointer;
+    font-weight: 700;
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+
+      width: 20px;
+      height: 20px;
+
+      border: 1px solid #8B8B8B;
+      border-radius: 2px;
+      background: $color-white;
+
+      position: relative;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+
+      &:checked {
+        border-color: #A2D2FF;
+        background: #A2D2FF;
+      }
+
+      &:checked::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        width: 5px;
+        height: 10px;
+        border: solid $color-text;
+        border-width: 0 2px 2px 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+
+  &__submit-wrap {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px 24px;
+    background: $color-white;
+    color: $color-text;
+    font-family: $font-ja;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid $color-text;
+    border-radius: 0;
+    cursor: pointer;
+    @include transition(background, opacity);
+
+    &:hover {
+      background: #0F65A3;
+      color: $color-white;
+    }
+
+    &:active { opacity: 0.85; }
+  }
+}

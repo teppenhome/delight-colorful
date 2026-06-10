@@ -91,12 +91,12 @@ function initSideNav() {
   if (!hero || !contact || !sideNav) return;
 
   let heroVisible = true;
-  let contactVisible = false;
+  let reachedContact = false;
 
   const updateNav = () => {
     sideNav.classList.toggle(
       'is-visible',
-      !heroVisible && !contactVisible
+      !heroVisible && !reachedContact
     );
   };
 
@@ -106,14 +106,20 @@ function initSideNav() {
   });
 
   const contactObserver = new IntersectionObserver((entries) => {
-    contactVisible = entries[0].isIntersecting;
-    updateNav();
+    if (entries[0].isIntersecting) {
+      reachedContact = true;
+      updateNav();
+
+      // もう監視しなくてOK
+      contactObserver.unobserve(contact);
+    }
+  }, {
+    rootMargin: '0px 0px -80% 0px'
   });
 
   heroObserver.observe(hero);
   contactObserver.observe(contact);
 }
-
 
 // ============================================================
 //  WORKS SECTION

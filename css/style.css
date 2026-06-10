@@ -563,16 +563,16 @@ ul {
 
 .hero {
   position: relative;
-  min-height: 100vh;
 }
 .hero__bg {
-  position: absolute;
-  inset: 0;
-  background-image: url(../images/hero-image_blue.png);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: min(1400px, 100%);
   pointer-events: none;
+}
+.hero__bg img {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  margin-inline: auto;
 }
 .hero__text {
   position: absolute;
@@ -580,11 +580,15 @@ ul {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
+  width: 100%;
+  max-width: 1400px;
+  padding-inline: 20px;
+  box-sizing: border-box;
+  pointer-events: none;
 }
 @media (max-width: 768px) {
   .hero__text {
-    position: static;
-    transform: none;
+    padding-inline: 16px;
   }
 }
 .hero__catch {
@@ -595,6 +599,12 @@ ul {
   width: 100%;
   max-width: 350px;
   height: auto;
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .hero__catch img {
+    max-width: 260px;
+  }
 }
 
 .about {

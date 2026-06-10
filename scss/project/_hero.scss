@@ -6,16 +6,17 @@
 // ============================================================
 .hero {
   position: relative;
-  min-height: 100vh;
 
   &__bg {
-    position: absolute;
-    inset: 0;
-    background-image: url(../images/hero-image_blue.png);
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: min(1400px, 100%);
     pointer-events: none;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 1400px;
+      height: auto;
+      margin-inline: auto;
+    }
   }
 
   &__text {
@@ -24,21 +25,30 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
+    width: 100%;
+    max-width: 1400px;
+    padding-inline: 20px;
+    box-sizing: border-box;
+    pointer-events: none;
 
     @include sp {
-      position: static;
-      transform: none;
+      padding-inline: 16px;
     }
   }
 
   &__catch {
     margin: 0;
 
-  img {
-    display: block;
-    width: 100%;
-    max-width: 350px;
-    height: auto;
+    img {
+      display: block;
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      margin-inline: auto;
+
+      @include sp {
+        max-width: 260px;
+      }
     }
   }
 }

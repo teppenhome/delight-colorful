@@ -52,6 +52,45 @@
     </ul>
   </nav>
 
+  <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
+    <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <div class="drawer__panel" id="drawerPanel" tabindex="-1">
+      <nav class="drawer__nav" aria-label="ドロワーメニュー">
+        <ul class="drawer__list">
+          <li class="drawer__item">
+            <a href="#about" class="drawer__link">
+              <span class="drawer__en">ABOUT US</span>
+              <span class="drawer__ja">会社概要</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="#works" class="drawer__link">
+              <span class="drawer__en">WORKS</span>
+              <span class="drawer__ja">制作実績</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="#service" class="drawer__link">
+              <span class="drawer__en">SERVICE</span>
+              <span class="drawer__ja">できること</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="#news" class="drawer__link">
+              <span class="drawer__en">NEWS</span>
+              <span class="drawer__ja">お知らせ</span>
+            </a>
+          </li>
+          <li class="drawer__item drawer__item--contact">
+            <a href="#contact" class="drawer__link drawer__link--contact">
+              <img src="images/contact.png" alt="お問い合わせ">
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
   <main>
 
     <!-- ============================================================
@@ -69,7 +108,7 @@
               <img src="images/logo.png" alt="DELIGHT">
             </a>
           </h1>
-          <nav class="header__nav" id="globalNav">
+          <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
             <ul class="header__nav-list">
               <li>
                 <a href="#about">
@@ -106,7 +145,13 @@
               </li>
             </ul>
           </nav>
-          <button class="header__hamburger" id="hamburger" aria-label="メニュー">
+          <button
+            class="header__hamburger"
+            id="hamburger"
+            type="button"
+            aria-label="メニューを開く"
+            aria-expanded="false"
+            aria-controls="drawerPanel">
             <span></span><span></span><span></span>
           </button>
         </div>

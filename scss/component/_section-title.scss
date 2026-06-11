@@ -1,4 +1,5 @@
 @use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
 
 // セクション共通ラベル（英語小見出し）
 .section-label {
@@ -29,7 +30,8 @@
       letter-spacing: 0.1em;
 
       &.__large {
-        font-size: 64px;
+        font-size: clamp(45px, 11vw, 64px);
+        letter-spacing: 0.1em;
       }
     }
   }

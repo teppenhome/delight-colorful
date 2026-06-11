@@ -9,6 +9,9 @@
 @mixin tab {
   @media (max-width: #{$breakpoint-tab}) { @content; }
 }
+@mixin lg {
+  @media (max-width: #{$breakpoint-lg}) { @content; }
+}
 @mixin flex-center {
   display: flex;
   align-items: center;

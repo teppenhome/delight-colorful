@@ -9,7 +9,7 @@
 // DOMContentLoaded 後に全処理を起動
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
-  initHamburger();
+  initDrawer();
   initSideNav();
   initWorksSlider();
   initScrollReveal();
@@ -51,30 +51,59 @@ function initHeader() {
 
 
 // ============================================================
-//  HERO / HEADER
-//  ハンバーガーメニュー（SP）
+//  DRAWER MENU
+//  ハンバーガー + 右スライドドロワー（tab以下）
 // ============================================================
-function initHamburger() {
-  const hamburger = document.getElementById('hamburger');
-  const nav       = document.getElementById('globalNav');
-  if (!hamburger || !nav) return;
+function initDrawer() {
+  const drawer         = document.getElementById('drawer');
+  const drawerPanel    = document.getElementById('drawerPanel');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+  const hamburger      = document.getElementById('hamburger');
+  const header         = document.getElementById('header');
+  if (!drawer || !drawerPanel || !hamburger) return;
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
+  const mq = window.matchMedia('(max-width: 1024px)');
+
+  const isDrawerOpen = () => drawer.classList.contains('is-open');
+
+  const setDrawerOpen = (isOpen) => {
+    drawer.classList.toggle('is-open', isOpen);
     hamburger.classList.toggle('is-active', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    // メニュー展開中はbodyスクロールを止める
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    drawer.setAttribute('aria-hidden', String(!isOpen));
+    document.body.classList.toggle('is-menu-open', isOpen);
+    header?.classList.toggle('is-menu-open', isOpen);
+  };
+
+  const closeDrawer = () => setDrawerOpen(false);
+
+  const openDrawer = () => setDrawerOpen(true);
+
+  const toggleDrawer = () => {
+    if (!mq.matches) return;
+    if (isDrawerOpen()) closeDrawer();
+    else openDrawer();
+  };
+
+  hamburger.addEventListener('click', toggleDrawer);
+
+  drawerBackdrop?.addEventListener('click', closeDrawer);
+
+  drawerPanel.addEventListener('click', (e) => {
+    if (e.target === drawerPanel) closeDrawer();
   });
 
-  // ナビリンクをクリックしたらメニューを閉じる
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      hamburger.classList.remove('is-active');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+  drawer.querySelectorAll('.drawer__link').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isDrawerOpen()) closeDrawer();
+  });
+
+  mq.addEventListener('change', (e) => {
+    if (!e.matches) closeDrawer();
   });
 }
 

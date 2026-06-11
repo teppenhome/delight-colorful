@@ -29,7 +29,7 @@
       visibility 0s linear 0s;
   }
 
-  @include sp { display: none; }
+  @include tab { display: none; }
 
   ul {
     display: flex;

@@ -9,6 +9,11 @@
   letter-spacing: 0.15em;
   color: #0F65A3;
   margin-bottom: 4px;
+
+  @include sp {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
 }
 
 // セクション共通タイトル
@@ -61,5 +66,9 @@
     font-family: $font-en;
     font-size: clamp(28px, 4vw, 48px);
     letter-spacing: 0.05em;
+  }
+
+  @include sp {
+    font-size: 38px;
   }
 }

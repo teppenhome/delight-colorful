@@ -7,8 +7,17 @@
 .hero {
   position: relative;
 
+  @include sp {
+    overflow-x: clip;
+  }
+
   &__bg {
     pointer-events: none;
+
+    @include sp {
+      overflow: hidden;
+      width: 100%;
+    }
 
     img {
       display: block;
@@ -16,6 +25,12 @@
       max-width: 1400px;
       height: auto;
       margin-inline: auto;
+
+      @include sp {
+        width: 150%;
+        max-width: none;
+        transform: translate(-16%, 1%);
+      }
     }
   }
 
@@ -47,7 +62,7 @@
       margin-inline: auto;
 
       @include sp {
-        max-width: 260px;
+        max-width: 200px;
       }
     }
   }

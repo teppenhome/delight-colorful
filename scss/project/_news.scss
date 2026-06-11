@@ -9,6 +9,10 @@
   background-color: rgba(15, 101, 163, 0.08);
   margin-top: 100px;
 
+  @include sp {
+    margin-top: 0;
+  }
+
   &__grid {
     background-color: $color-white;
     padding: 30px;

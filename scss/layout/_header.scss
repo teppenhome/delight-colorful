@@ -15,6 +15,9 @@
 
   @include tab {
     position: fixed;
+    left: 0;
+    right: 0;
+    width: auto;
     z-index: 300;
   }
 
@@ -35,11 +38,21 @@
 
     @include tab {
       align-items: center;
+      width: 100%;
+      max-width: 100%;
       padding: 20px;
+      box-sizing: border-box;
+    }
+
+    @include sp {
+      padding: 16px;
     }
   }
 
   &__logo {
+    min-width: 0;
+    flex-shrink: 1;
+
     a {
       display: flex;
       align-items: center;
@@ -48,7 +61,12 @@
     img {
       height: 48px;
       width: auto;
+      max-width: 100%;
       display: block;
+
+      @include sp {
+        height: 30px;
+      }
 
       &.is-loaded + .header__logo-text {
         display: none;

@@ -5,7 +5,7 @@
 //  WORKS SECTION
 // ============================================================
 $works-card-width:    300px;
-$works-card-gap:      20px;
+$works-card-gap:      30px;
 $works-visible-cards: 3;
 $works-arrow-size:    55px;
 
@@ -14,13 +14,16 @@ $works-arrow-size:    55px;
   --works-card-gap: #{$works-card-gap};
   --works-visible-cards: #{$works-visible-cards};
   --works-arrow-size: #{$works-arrow-size};
+  --works-next-offset: -28px; // PC: nextボタンの左右微調整（左へ寄せる場合はマイナス）
+  --works-prev-offset: -24px; // PC: prevボタンの左右微調整（左へ寄せる場合はマイナス）
 
   padding: $section-pad-v 0;
   position: relative;
-  overflow-x: clip;
+  overflow-x: visible;
 
   &__inner {
     position: relative;
+    overflow: visible;
   }
 
   .section-title {
@@ -34,22 +37,34 @@ $works-arrow-size:    55px;
     display: flex;
     align-items: center;
     margin-right: calc(50% - 50vw);
+    overflow: visible;
+    touch-action: pan-y;
+  }
+
+  &__slider-viewport {
+    flex: 1 1 auto;
+    min-width: 0;
     overflow: hidden;
-    padding-right: 60px; // 右端に次カードのちら見え余白
   }
 
   &__slider {
     display: flex;
-    gap: 30px;
-    flex: 1;
-    min-width: 0; // カード列の幅でflex子が伸び、nextボタンがはみ出さないようにする
+    gap: var(--works-card-gap);
+    width: max-content;
+    min-width: 100%;
+    position: relative;
+    z-index: 1;
     will-change: transform;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.is-dragging {
+      transition: none;
+    }
   }
 
   &__item {
-    flex: 0 0 $works-card-width;
-    width: $works-card-width;
+    flex: 0 0 var(--works-card-width);
+    width: var(--works-card-width);
     background: $color-white;
     overflow: hidden;
     @include transition(box-shadow);
@@ -180,8 +195,13 @@ $works-arrow-size:    55px;
     }
   
     &--prev {
-      margin-right: calc(#{$works-arrow-size} / -2);
-  
+      position: absolute;
+      left: var(--works-prev-offset);
+      top: calc(50% - 100px);
+      transform: translateY(-50%);
+      margin-right: 0;
+      z-index: 20;
+
       &::before {
         transform: translate(-60%, -50%) rotate(180deg);
       }
@@ -191,16 +211,20 @@ $works-arrow-size:    55px;
       position: absolute;
       top: calc(50% - 100px);
       transform: translateY(-50%);
-      left: calc(
-        #{$works-arrow-size} / 2 +
-        #{$works-card-width} * #{$works-visible-cards} +
-        #{$works-card-gap} * (#{$works-visible-cards} - 1) +
-        #{$works-card-gap} / 2 -
-        #{$works-arrow-size} / 2
+      left: min(
+        calc(
+          var(--works-arrow-size) / 2 +
+          var(--works-card-width) * var(--works-visible-cards) +
+          var(--works-card-gap) * (var(--works-visible-cards) - 1) +
+          var(--works-card-gap) / 2 -
+          var(--works-arrow-size) / 2 +
+          var(--works-next-offset)
+        ),
+        calc(100% - var(--works-arrow-size) - 12px)
       );
       margin-left: 0;
-      z-index: 10;
-  
+      z-index: 20;
+
       &::before {
         transform: translate(-45%, -50%);
       }
@@ -214,5 +238,63 @@ $works-arrow-size:    55px;
   &__link {
     text-align: center;
     margin-top: 60px;
+
+    @include sp {
+      margin-top: 50px;
+      padding-right: 30px;
+    }
+  }
+
+  @include lg {
+    --works-visible-cards: 2;
+  }
+
+  @include sp {
+    --works-visible-cards: 1;
+    --works-prev-offset: 0px;
+
+    &__slider-wrap {
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: 0 calc(12px + var(--works-arrow-size) / 2);
+    }
+
+    &__slider-viewport {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+
+    &__slider {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    &__item {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__thumb {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 300 / 333;
+    }
+
+    &__arrow {
+      position: absolute;
+      top: calc(50% - 100px);
+      transform: translateY(-50%);
+
+      &--prev {
+        left: 12px;
+        margin-right: 0;
+      }
+
+      &--next {
+        left: auto;
+        right: 12px;
+      }
+    }
   }
 }

@@ -143,13 +143,16 @@ function initSideNav() {
 //  カスタムスライダー（前へ / 次へ）
 // ============================================================
 function initWorksSlider() {
-  const slider  = document.getElementById('worksSlider');
-  const btnPrev = document.getElementById('worksPrev');
-  const btnNext = document.getElementById('worksNext');
+  const slider     = document.getElementById('worksSlider');
+  const btnPrev    = document.getElementById('worksPrev');
+  const btnNext    = document.getElementById('worksNext');
+  const sliderWrap = slider?.closest('.works__slider-wrap');
 
-  if (!slider || !btnPrev || !btnNext) return;
+  if (!slider || !btnPrev || !btnNext || !sliderWrap) return;
 
   let currentIndex = 0;
+
+  const SWIPE_THRESHOLD = 50;
 
   const getItems = () => Array.from(slider.querySelectorAll('.works__item'));
 
@@ -169,21 +172,32 @@ function initWorksSlider() {
     return parseInt(styles?.getPropertyValue('--works-visible-cards'), 10) || 3;
   };
 
-  const update = () => {
-    const items     = getItems();
-    const visible   = getVisible();
-    const max       = Math.max(0, items.length - visible);
+  const getMax = () => Math.max(0, getItems().length - getVisible());
+
+  const getCenterOffset = () => {
+    if (getVisible() !== 1) return 0;
+    const viewport = slider.parentElement;
+    const viewportWidth = viewport
+      ? viewport.getBoundingClientRect().width
+      : slider.getBoundingClientRect().width;
     const cardWidth = getCardWidth();
-    const gap       = getGap();
+    return Math.max(0, (viewportWidth - cardWidth) / 2);
+  };
 
-    currentIndex = Math.min(Math.max(currentIndex, 0), max);
+  const getMoveX = (index) => (getCardWidth() + getGap()) * index;
 
-    const moveX = (cardWidth + gap) * currentIndex;
+  const setTransform = (index, dragOffset = 0, animate = true) => {
+    slider.classList.toggle('is-dragging', !animate);
+    const x = getMoveX(index) - getCenterOffset() - dragOffset;
+    slider.style.transform = `translateX(-${x}px)`;
+  };
 
-    slider.style.transform = `translateX(-${moveX}px)`;
+  const update = (animate = true) => {
+    currentIndex = Math.min(Math.max(currentIndex, 0), getMax());
+    setTransform(currentIndex, 0, animate);
 
     btnPrev.disabled = currentIndex === 0;
-    btnNext.disabled = currentIndex >= max;
+    btnNext.disabled = currentIndex >= getMax();
 
     btnPrev.style.opacity = btnPrev.disabled ? '0.3' : '1';
     btnNext.style.opacity = btnNext.disabled ? '0.3' : '1';
@@ -203,6 +217,72 @@ function initWorksSlider() {
     currentIndex = 0;
     update();
   }, { passive: true });
+
+  // タッチスワイプ
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchDeltaX = 0;
+  let isTouchDragging = false;
+  let preventClick = false;
+
+  sliderWrap.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchDeltaX = 0;
+    isTouchDragging = false;
+    preventClick = false;
+  }, { passive: true });
+
+  sliderWrap.addEventListener('touchmove', (e) => {
+    if (e.touches.length !== 1) return;
+
+    const deltaX = e.touches[0].clientX - touchStartX;
+    const deltaY = e.touches[0].clientY - touchStartY;
+
+    if (!isTouchDragging) {
+      if (Math.abs(deltaX) <= Math.abs(deltaY) || Math.abs(deltaX) < 10) return;
+      isTouchDragging = true;
+    }
+
+    e.preventDefault();
+
+    touchDeltaX = deltaX;
+
+    let dragOffset = touchDeltaX;
+    const max = getMax();
+    if (currentIndex === 0 && dragOffset > 0) dragOffset *= 0.35;
+    if (currentIndex >= max && dragOffset < 0) dragOffset *= 0.35;
+
+    setTransform(currentIndex, dragOffset, false);
+  }, { passive: false });
+
+  const finishTouch = () => {
+    if (!isTouchDragging) return;
+
+    const max = getMax();
+    preventClick = Math.abs(touchDeltaX) > 10;
+
+    if (touchDeltaX < -SWIPE_THRESHOLD && currentIndex < max) {
+      currentIndex++;
+    } else if (touchDeltaX > SWIPE_THRESHOLD && currentIndex > 0) {
+      currentIndex--;
+    }
+
+    isTouchDragging = false;
+    touchDeltaX = 0;
+    update();
+  };
+
+  sliderWrap.addEventListener('touchend', finishTouch, { passive: true });
+  sliderWrap.addEventListener('touchcancel', finishTouch, { passive: true });
+
+  sliderWrap.addEventListener('click', (e) => {
+    if (!preventClick) return;
+    e.preventDefault();
+    e.stopPropagation();
+    preventClick = false;
+  }, true);
 
   update();
 }

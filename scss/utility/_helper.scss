@@ -1,6 +1,38 @@
+@use "../foundation/mixin" as *;
+
 // ============================================================
 //  ユーティリティ - ヘルパー
 // ============================================================
+
+// レスポンシブ改行
+// 使い方:
+//   <br class="u-br-pc">  … PCのみ改行
+//   <br class="u-br-sp">  … スマホのみ改行
+//   <div class="u-no-br-sp"> … 内の br をスマホでは無効化
+.u-br-pc {
+  display: block;
+
+  @include sp {
+    display: none;
+  }
+}
+
+.u-br-sp {
+  display: none;
+
+  @include sp {
+    display: block;
+  }
+}
+
+.u-no-br-sp {
+  br {
+    @include sp {
+      display: none;
+    }
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

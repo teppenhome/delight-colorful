@@ -90,53 +90,23 @@ function initSideNav() {
 
   if (!hero || !contact || !sideNav) return;
 
-  let heroVisible = true;
-  let reachedContact = false;
-
   const contactThreshold = () => window.innerHeight * 0.2;
 
-  const isHeroVisible = () => {
-    const rect = hero.getBoundingClientRect();
-    return rect.bottom > 0 && rect.top < window.innerHeight;
-  };
-
-  const isContactReached = () =>
-    contact.getBoundingClientRect().top < contactThreshold();
-
   const syncState = () => {
-    heroVisible = isHeroVisible();
-    if (isContactReached()) reachedContact = true;
-    updateNav();
-  };
+    const heroRect = hero.getBoundingClientRect();
+    const heroVisible = heroRect.bottom > 0 && heroRect.top < window.innerHeight;
+    const reachedContact = contact.getBoundingClientRect().top < contactThreshold();
 
-  const updateNav = () => {
     sideNav.classList.toggle(
       'is-visible',
       !heroVisible && !reachedContact
     );
   };
 
-  const heroObserver = new IntersectionObserver((entries) => {
-    heroVisible = entries[0].isIntersecting;
-    updateNav();
-  });
-
-  const contactObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      reachedContact = true;
-      updateNav();
-      contactObserver.unobserve(contact);
-    }
-  }, {
-    rootMargin: '0px 0px -80% 0px'
-  });
-
-  heroObserver.observe(hero);
-  contactObserver.observe(contact);
-
-  syncState();
+  window.addEventListener('scroll', syncState, { passive: true });
   window.addEventListener('load', syncState);
   window.addEventListener('pageshow', syncState);
+  syncState();
 }
 
 // ============================================================

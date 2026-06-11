@@ -93,6 +93,22 @@ function initSideNav() {
   let heroVisible = true;
   let reachedContact = false;
 
+  const contactThreshold = () => window.innerHeight * 0.2;
+
+  const isHeroVisible = () => {
+    const rect = hero.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < window.innerHeight;
+  };
+
+  const isContactReached = () =>
+    contact.getBoundingClientRect().top < contactThreshold();
+
+  const syncState = () => {
+    heroVisible = isHeroVisible();
+    if (isContactReached()) reachedContact = true;
+    updateNav();
+  };
+
   const updateNav = () => {
     sideNav.classList.toggle(
       'is-visible',
@@ -109,8 +125,6 @@ function initSideNav() {
     if (entries[0].isIntersecting) {
       reachedContact = true;
       updateNav();
-
-      // もう監視しなくてOK
       contactObserver.unobserve(contact);
     }
   }, {
@@ -119,6 +133,10 @@ function initSideNav() {
 
   heroObserver.observe(hero);
   contactObserver.observe(contact);
+
+  syncState();
+  window.addEventListener('load', syncState);
+  window.addEventListener('pageshow', syncState);
 }
 
 // ============================================================

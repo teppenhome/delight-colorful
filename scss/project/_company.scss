@@ -6,11 +6,10 @@
 // ============================================================
 .clients {
   padding: $section-pad-v 0;
-  background: $color-white;
 
   .section-label,
   .section-title {
-    text-align: center;
+    text-align: left;
   }
 
   &__logos {

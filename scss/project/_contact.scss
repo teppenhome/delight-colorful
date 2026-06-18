@@ -10,16 +10,16 @@
 
   .section-label,
   .section-title {
-    text-align: center;
+    text-align: left;
   }
 
   &__lead {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
+    text-align: left;
+    font-size: 20px;
     color: $color-text;
-    line-height: 1.9;
+    line-height: 1.7;
     margin-bottom: 48px;
+    font-weight: 500;
 
     @include sp { text-align: left; }
   }
@@ -27,7 +27,6 @@
   &__form {
     max-width: 1020px;
     margin: 0 auto;
-    background: $color-white;
     padding: 0 40px;
 
     @include sp { padding: 24px 0; }
@@ -131,7 +130,7 @@
     font-family: $font-ja;
     font-size: 14px;
     color: $color-text;
-    background: #ECF3F8;
+    background: #fff;
     @include transition(border-color, box-shadow);
     outline: none;
 

@@ -6,8 +6,8 @@
 // ============================================================
 .news {
   padding: $section-pad-v 0;
-  background-color: rgba(15, 101, 163, 0.08);
-  margin-top: 100px;
+  padding-top: 100px;
+  background-color: #C6DDEE;
 
   @include sp {
     margin-top: 0;
@@ -110,15 +110,10 @@
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 2px;
-    background: $color-tag-bg;
-    color: $color-text-sub;
+    background: #F28E55;
+    color: #fff;
     margin-bottom: 6px;
     line-height: 1.6;
-
-    &--blue {
-      background: $color-tag-blue;
-      color: $color-white;
-    }
   }
 
   &__title {
@@ -131,9 +126,8 @@
     overflow: hidden;
   }
 
-  &__more-wrap {
-    text-align: right;
-    margin-top: 0;
-    margin-right: 50px;
+  &__link {
+    text-align: center;
+    margin-top: 30px;
   }
 }

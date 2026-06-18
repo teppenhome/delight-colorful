@@ -2,5 +2,6 @@
   "task.allowAutomaticTasks": "on",
   "files.associations": {
     "*.scss": "scss"
-  }
+  },
+  "liveServer.settings.port": 5501
 }

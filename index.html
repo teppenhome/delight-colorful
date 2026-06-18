@@ -7,13 +7,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,500;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   
-  <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション">
+  <!-- <nav class="side-nav" id="sideNav" aria-label="サイドナビゲーション">
     <h1 class="header__logo--side">
       <a href="#">
         <img src="images/logo.png" alt="DELIGHT">
@@ -50,7 +50,7 @@
         </a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 
   <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
     <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
@@ -98,7 +98,7 @@
     ============================================================ -->
     <section class="hero" id="top">
       <div class="hero__bg">
-        <img src="images/hero-image_blue.png" alt="">
+        <img src="images/hero-image_color.png" alt="">
       </div>
 
       <header class="header" id="header">
@@ -111,40 +111,32 @@
           <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
             <ul class="header__nav-list">
               <li>
-                <a href="#about">
-                  <span class="header__nav-en">ABOUT US</span>
-                  <span class="header__nav-ja">会社概要</span>
-                </a>
+                <a href="#about">ABOUT US</a>
               </li>
               <li>
-                <a href="#works">
-                  <span class="header__nav-en">WORKS</span>
-                  <span class="header__nav-ja">制作実績</span>
-                </a>
-              </li>
-          
-              <li>
-                <a href="#service">
-                  <span class="header__nav-en">SERVICE</span>
-                  <span class="header__nav-ja">サービス</span>
-                </a>
+                <a href="#works">WORK</a>
               </li>
               <li>
-                <a href="#news">
-                  <span class="header__nav-en">NEWS</span>
-                  <span class="header__nav-ja">お知らせ</span>
-                </a>
+                <a href="#service">SERVICE</a>
               </li>
-          
-          
-          
               <li>
-                <a href="#contact" class="header__nav-contact">
-                  <img src="images/contact.png" alt="お問い合わせ">
-                </a>
+                <a href="#news">NEWS</a>
               </li>
             </ul>
           </nav>
+          <div class="header__actions">
+            <a href="#contact" class="header__btn header__btn--contact">
+              <img
+                src="images/header-contact.svg"
+                alt=""
+                class="header__btn-icon"
+              >
+              CONTACT
+            </a>
+            <a href="#recruit" class="header__btn header__btn--recruit">
+              RECRUIT
+            </a>
+          </div>
           <button
             class="header__hamburger"
             id="hamburger"
@@ -158,11 +150,12 @@
       </header>
 
       <div class="hero__text">
-        <div class="hero__catch">
-          <img
-            src="images/hero-text02.png"
-            alt="想いをカタチに。信頼をその手に。"
-          >
+        <div class="hero__line">
+          <span class="large">彩</span>り
+          <span class="large">豊</span>かな
+        </div>
+        <div class="hero__line">
+          <span class="large">未来</span>へ
         </div>
       </div>
     </section>
@@ -173,8 +166,8 @@
     <section class="about" id="about">
       <div class="about__inner container">
         <p class="section-label">What is DELIGHT ?</p>
-        <h2 class="section-title">
-          <span class="section-title__en">DELIGHT</span>とは
+        <h2 class="section-title section-title__en">
+          <span class="section-title__en __large">DELIGHT</span>とは
         </h2>
         <div class="about__body">
           <div class="about__text u-no-br-sp">
@@ -183,9 +176,13 @@
             <p>さまざまな企業から依頼を受け、<br />企画提案・デザイン・サンプル制作・量産・検品、物流までを<br />一括でお任せいただいております。<br />冒険的なものから堅実的なデザインまで幅広く対応可能です。</p>
           </div>
           <div class="about__link">
-            <a href="#" class="c-more-link">
-              <span class="c-more-link__text">More</span>
-              <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+            <a href="#" class="c-more-btn">
+              ABOUT US
+              <span class="c-more-btn__icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
           </div>
         </div>
@@ -198,8 +195,8 @@
     <section class="works" id="works">
       <div class="works__inner container">
         <h2 class="section-title">
-          <span class="section-title__en__blue">WORKS</span>
-          <span class="section-title__ruby">制作実績</span>
+          <span class="section-title__ruby">最新制作実績</span>
+          <span class="section-title__en __large">WORK</span>
         </h2>
     
         <div class="works__slider-wrap">
@@ -210,117 +207,20 @@
           </button>
           <div class="works__slider-viewport">
             <div class="works__slider" id="worksSlider">
-    
+
             <div class="works__item">
               <a href="#">
                 <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+01" alt="制作実績01">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+01" alt="制作実績01">
                 </div>
                 <div class="works__info">
+                  <p class="works__pickup">Pickup.01</p>
                   <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-    
-            <div class="works__item">
-              <a href="#">
-                <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+02" alt="制作実績02">
-                </div>
-                <div class="works__info">
-                  <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-    
-            <div class="works__item">
-              <a href="#">
-                <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+03" alt="制作実績03">
-                </div>
-                <div class="works__info">
-                  <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-    
-            <div class="works__item">
-              <a href="#">
-                <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+04" alt="制作実績04">
-                </div>
-                <div class="works__info">
-                  <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-    
-            <div class="works__item">
-              <a href="#">
-                <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+05" alt="制作実績05">
-                </div>
-                <div class="works__info">
-                  <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
                   </div>
                 </div>
               </a>
@@ -329,21 +229,16 @@
             <div class="works__item">
               <a href="#">
                 <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+06" alt="制作実績05">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+02" alt="制作実績02">
                 </div>
                 <div class="works__info">
+                  <p class="works__pickup">Pickup.02</p>
                   <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
                   </div>
                 </div>
               </a>
@@ -352,21 +247,16 @@
             <div class="works__item">
               <a href="#">
                 <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+07" alt="制作実績05">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+03" alt="制作実績03">
                 </div>
                 <div class="works__info">
+                  <p class="works__pickup">Pickup.03</p>
                   <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
                   </div>
                 </div>
               </a>
@@ -375,26 +265,93 @@
             <div class="works__item">
               <a href="#">
                 <div class="works__thumb">
-                  <img src="https://placehold.co/320x260/cfd8dc/90a4ae?text=Works+08" alt="制作実績05">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+04" alt="制作実績04">
                 </div>
                 <div class="works__info">
+                  <p class="works__pickup">Pickup.04</p>
                   <p class="works__client">お客様の社名</p>
-                  <h3 class="works__title">ああああああああ<br>あああああああああああああ</h3>
-                  <div class="works__footer">
-                    <span class="works__tag">スポーツ</span>
-                    <span class="works__more">
-                      <span class="works__more-text">More</span>
-                      <img
-                        src="images/work-arrow.svg"
-                        alt=""
-                        class="works__more-arrow"
-                      >
-                    </span>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
                   </div>
                 </div>
               </a>
             </div>
-    
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+05" alt="制作実績05">
+                </div>
+                <div class="works__info">
+                  <p class="works__pickup">Pickup.05</p>
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+06" alt="制作実績06">
+                </div>
+                <div class="works__info">
+                  <p class="works__pickup">Pickup.06</p>
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+07" alt="制作実績07">
+                </div>
+                <div class="works__info">
+                  <p class="works__pickup">Pickup.07</p>
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="works__item">
+              <a href="#">
+                <div class="works__thumb">
+                  <img src="https://placehold.co/360x280/d9d9d9/999999?text=Works+08" alt="制作実績08">
+                </div>
+                <div class="works__info">
+                  <p class="works__pickup">Pickup.08</p>
+                  <p class="works__client">お客様の社名</p>
+                  <h3 class="works__title"><span class="works__title-label">しょうひん名</span></h3>
+                  <p class="works__desc">ああああああああああああああああああああああああああああああああああああ</p>
+                  <div class="works__tags">
+                    <span class="works__tag">#アパレル</span>
+                    <span class="works__tag">#スポーツ</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
           </div>
           </div>
           <button
@@ -405,9 +362,13 @@
         </div>     
     
         <div class="works__link">
-          <a href="#" class="c-more-link _center">
-            <span class="c-more-link__text">All</span>
-            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+          <a href="#" class="c-more-btn">
+            WORK ALL
+            <span class="c-more-btn__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </a>
         </div>
       </div>
@@ -419,8 +380,8 @@
     <section class="service" id="service">
       <div class="service__inner container">
         <h2 class="section-title section-title">
-          <span class="section-title__en__blue">SERVICE FLOW</span>
-          <span class="section-title__ruby">ご依頼の流れ</span>
+          <span class="section-title__ruby __white">ご依頼の流れ</span>
+          <span class="section-title__en __large">SERVICE</span>
         </h2>
         <p class="service__lead">私たちの仕事は、様々な企業からの依頼を受け、オリジナルのアイデアの商品を提供することです。<br />「なにかユニークな商品を考えて」そんな漠然とした依頼でもまったく問題ありません。<br />ゼロから企画し、完成した商品をお届けするところまで、トータルでサポートできることがDelightの良いところです。</p>
 
@@ -472,6 +433,17 @@
           </div>
 
         </div>
+
+        <div class="service__link">
+          <a href="#" class="c-more-btn">
+            SERVICEについて
+            <span class="c-more-btn__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -481,7 +453,7 @@
     <section class="news" id="news">
       <div class="news__inner container">
         <h2 class="section-title section-title--inline">
-          <span class="section-title__en__blue __large">NEWS</span>
+          <span class="section-title__en __large __italic">NEWS</span>
           <span class="section-title__ruby">お知らせ</span>
         </h2>
 
@@ -498,7 +470,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -515,7 +487,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -532,7 +504,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -549,7 +521,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -566,7 +538,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -583,7 +555,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -600,7 +572,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -617,7 +589,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -634,7 +606,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -651,7 +623,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -668,7 +640,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -685,7 +657,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -702,7 +674,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -719,7 +691,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -736,7 +708,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -753,7 +725,7 @@
           
                   <div class="news__body">
                     <span class="news__date">2020/00/00</span>
-                    <span class="news__tag news__tag--blue">カテゴリ</span>
+                    <span class="news__tag news__tag">カテゴリ</span>
           
                     <p class="news__title">
                       【〇〇】ああああああああああああああああああああああああああああああああああああ
@@ -766,10 +738,14 @@
           </div>
         </div>
 
-        <div class="news__more-wrap">
-          <a href="#" class="c-more-link  c-more-link--lower">
-            <span class="c-more-link__text">More</span>
-            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
+        <div class="news__link">
+          <a href="#" class="c-more-btn">
+            MORE
+            <span class="c-more-btn__icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </a>
         </div>
       </div>
@@ -779,9 +755,9 @@
     ============================================================ -->
     <section class="clients" id="clients">
       <div class="clients__inner container">
-        <h2 class="section-title section-title">
-          <span class="section-title__en__blue">OUR CLIENTS</span>
-          <span class="section-title__ruby">制作実績</span>
+        <h2 class="section-title section-title--inline">
+          <span class="section-title__en">OUR CLIENTS</span>
+          <span class="section-title__ruby">取引先実績</span>
         </h2>
 
         <!-- 仮置き -->
@@ -836,9 +812,14 @@
     ============================================================ -->
     <section class="contact" id="contact">
       <div class="contact__inner container">
-        <h2 class="section-title section-title">
-          <span class="section-title__en__blue __large">CONTACT</span>
+        <h2 class="section-title section-title--contact">
           <span class="section-title__ruby">お問い合わせ</span>
+          <div class="section-title__contact-wrap">
+            <span class="section-title__en __large">CONTACT</span>
+            <span class="section-title__mail">
+              <img src="images/mail-icon.svg" alt="">
+            </span>
+          </div>
         </h2>
         <p class="contact__lead">「おもしろい商品を考えて欲しい」「こんなデザインの商品はできる？」など、<br />どんなご依頼、ご相談でも大歓迎です。ぜひお気軽にお問い合わせください。<br />以下のお問い合わせフォームよりご連絡ください。</p>
 
@@ -913,73 +894,67 @@
     FOOTER
   ============================================================ -->
   <footer class="footer">
-
     <div class="footer__inner container">
   
-      <div class="footer__head">
-        <p class="footer__index">Index</p>
-        <!-- <div class="to-top-wrap">
-          <a href="#top" class="c-more-link c-more-link--top">
-            <span class="c-more-link__text">Top Page</span>
-            <img src="images/button-arrow.svg" alt="" class="c-more-link__arrow">
-          </a>
-        </div> -->
-      </div>
+      <div class="footer__layout">
   
-      <div class="footer__line"></div>
-
-      <div class="footer__content">
-        <div class="footer__nav">
-    
-          <div class="footer__col">
-            <a href="#about"  class="footer__title">ABOUT</a>
-            <ul>
-              <li><a href="#">会社について</a></li>
-              <li><a href="#">仕事の流れ</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer__col">
-            <a href="#news" class="footer__title">NEWS</a>
-            <ul>
-              <li><a href="#">お知らせ一覧</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer__col">
-            <a href="#company" class="footer__title">COMPANY</a>
-            <ul>
-              <li><a href="#">会社概要</a></li>
-              <li><a href="#">企業理念</a></li>
-              <li><a href="#">アクセス</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer__col footer__col--works">
-            <a href="#works" class="footer__title">WORKS</a>
-            <ul>
-              <li><a href="#">業務実績一覧</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer__col footer__col--service">
-            <a href="#service" class="footer__title">SERVICE</a>
-          </div>
-
-          <a href="#contact" class="footer__recruit">
-            RECRUIT
+        <div class="footer__left">
+          <a href="#top" class="footer__logo">
+            <img src="images/logo.png" alt="DELIGHT">
           </a>
-    
+  
+          <p class="footer__index">INDEX</p>
+          <div class="footer__line"></div>
+  
+          <div class="footer__nav">
+            <div class="footer__col">
+              <a href="#about" class="footer__title">ABOUT</a>
+              <ul>
+                <li><a href="#">会社について</a></li>
+                <li><a href="#">仕事の流れ</a></li>
+              </ul>
+            </div>
+  
+            <div class="footer__col">
+              <a href="#news" class="footer__title">NEWS</a>
+              <ul>
+                <li><a href="#">お知らせ一覧</a></li>
+              </ul>
+            </div>
+  
+            <div class="footer__col">
+              <a href="#company" class="footer__title">COMPANY</a>
+              <ul>
+                <li><a href="#">会社概要</a></li>
+                <li><a href="#">企業理念</a></li>
+                <li><a href="#">アクセス</a></li>
+              </ul>
+            </div>
+  
+            <div class="footer__col">
+              <a href="#works" class="footer__title">WORK</a>
+              <ul>
+                <li><a href="#">業務実績一覧</a></li>
+              </ul>
+            </div>
+  
+            <div class="footer__col">
+              <a href="#service" class="footer__title">SERVICE</a>
+            </div>
+          </div>
         </div>
-      </div>
-        
   
+        <div class="footer__buttons">
+          <a href="#" class="footer__button footer__button--recruit">RECRUIT</a>
+          <a href="#contact" class="footer__button footer__button--contact">CONTACT</a>
+        </div>
+  
+      </div>
     </div>
-
+  
     <div class="footer__copyright">
       <p>&copy; DELIGHT All rights reserved</p>
     </div>
-  
   </footer>
 
   <a href="#top" id="pageTop" class="page-top" aria-label="ページ上部へ戻る">

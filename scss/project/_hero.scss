@@ -6,12 +6,14 @@
 // ============================================================
 .hero {
   position: relative;
+  background-color: #117ABE; // 画像の背景と同じ青
 
   @include sp {
     overflow-x: clip;
   }
 
   &__bg {
+    position: relative;
     pointer-events: none;
 
     @include sp {
@@ -19,10 +21,30 @@
       width: 100%;
     }
 
+    // 下部グラデーション画像
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -180px;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background-image: url("../images/hero-bottom.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      pointer-events: none;
+      z-index: 1;
+ 
+      @include sp {
+        height: 120px;
+      }
+    }
+
     img {
       display: block;
       width: 100%;
-      max-width: 1400px;
+      max-width: 1200px;
       height: auto;
       margin-inline: auto;
 
@@ -36,34 +58,29 @@
 
   &__text {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 35%;
+    top: 30%;
     z-index: 5;
-    width: 100%;
-    max-width: 1400px;
-    padding-inline: 20px;
-    box-sizing: border-box;
-    pointer-events: none;
 
-    @include sp {
-      padding-inline: 16px;
-    }
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+
+    text-shadow:
+      1px 1px 14px rgba(238, 179, 0, 0.82),
+      0 0 20px rgba(238, 179, 0, 0.4);
   }
 
-  &__catch {
-    margin: 0;
-
-    img {
-      display: block;
-      width: 100%;
-      max-width: 350px;
-      height: auto;
-      margin-inline: auto;
-
-      @include sp {
-        max-width: 200px;
-      }
-    }
+  &__line {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.02em;
   }
+}
+
+.large {
+  font-size: 80px;
 }

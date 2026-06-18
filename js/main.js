@@ -21,11 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ============================================================
 //  HEADER
-//  スクロール時にクラスを付与してシャドウを表示
+//  スクロール時に半透明＋ぼかし用クラスを付与
 // ============================================================
 function initHeader() {
   const header = document.getElementById('header');
   if (!header) return;
+
+  const contact = document.querySelector('.contact');
+  const hideAt = () => window.innerHeight * 0.2;
+  const SHOW_BUFFER = 140;
+  const ANIMATION_MS = 700;
+  let isHidden = false;
+  let isAnimating = false;
+  let animTimer = null;
 
   const logoImg = header.querySelector('.header__logo img');
   if (logoImg) {
@@ -37,11 +45,38 @@ function initHeader() {
     markLoaded();
   }
 
+  const setHeaderHidden = (hidden) => {
+    if (hidden === isHidden) return;
+
+    isHidden = hidden;
+    header.classList.toggle('is-hidden', isHidden);
+
+    isAnimating = true;
+    clearTimeout(animTimer);
+    animTimer = setTimeout(() => {
+      isAnimating = false;
+    }, ANIMATION_MS);
+  };
+
+  const syncHeaderVisibility = (contactTop) => {
+    if (isAnimating) return;
+
+    if (!isHidden && contactTop < hideAt()) {
+      setHeaderHidden(true);
+    } else if (isHidden && contactTop > hideAt() + SHOW_BUFFER) {
+      setHeaderHidden(false);
+    }
+  };
+
   const onScroll = () => {
     if (window.scrollY > 40) {
       header.classList.add('is-scrolled');
     } else {
       header.classList.remove('is-scrolled');
+    }
+
+    if (contact) {
+      syncHeaderVisibility(contact.getBoundingClientRect().top);
     }
   };
 
@@ -156,39 +191,20 @@ function initWorksSlider() {
 
   const getItems = () => Array.from(slider.querySelectorAll('.works__item'));
 
-  const getGap = () => {
-    const styles = getComputedStyle(slider);
-    return parseFloat(styles.columnGap || styles.gap) || 0;
-  };
-
-  const getCardWidth = () => {
-    const firstItem = slider.querySelector('.works__item');
-    return firstItem ? firstItem.getBoundingClientRect().width : 0;
-  };
-
-  const getVisible = () => {
-    const worksSection = slider.closest('.works');
-    const styles = worksSection ? getComputedStyle(worksSection) : null;
-    return parseInt(styles?.getPropertyValue('--works-visible-cards'), 10) || 3;
-  };
-
-  const getMax = () => Math.max(0, getItems().length - getVisible());
-
-  const getCenterOffset = () => {
-    if (getVisible() !== 1) return 0;
-    const viewport = slider.parentElement;
-    const viewportWidth = viewport
-      ? viewport.getBoundingClientRect().width
-      : slider.getBoundingClientRect().width;
-    const cardWidth = getCardWidth();
-    return Math.max(0, (viewportWidth - cardWidth) / 2);
-  };
-
-  const getMoveX = (index) => (getCardWidth() + getGap()) * index;
+  const getMax = () => Math.max(0, getItems().length - 1);
 
   const setTransform = (index, dragOffset = 0, animate = true) => {
+    const items = getItems();
+    const target = items[index];
+    const firstItem = items[0];
+    const viewport = slider.parentElement;
+
+    if (!target || !firstItem || !viewport) return;
+
     slider.classList.toggle('is-dragging', !animate);
-    const x = getMoveX(index) - getCenterOffset() - dragOffset;
+
+    // パディングで中央寄せした上で、先頭カード基準の相対移動にする
+    const x = target.offsetLeft - firstItem.offsetLeft - dragOffset;
     slider.style.transform = `translateX(-${x}px)`;
   };
 
@@ -203,6 +219,12 @@ function initWorksSlider() {
     btnNext.style.opacity = btnNext.disabled ? '0.3' : '1';
   };
 
+  const centerOnIndex = (index, animate = false) => {
+    currentIndex = index;
+    update(animate);
+    slider.classList.add('is-ready');
+  };
+
   btnPrev.addEventListener('click', () => {
     currentIndex--;
     update();
@@ -214,8 +236,7 @@ function initWorksSlider() {
   });
 
   window.addEventListener('resize', () => {
-    currentIndex = 0;
-    update();
+    centerOnIndex(0);
   }, { passive: true });
 
   // タッチスワイプ
@@ -284,7 +305,16 @@ function initWorksSlider() {
     preventClick = false;
   }, true);
 
-  update();
+  // 初期表示は Pickup.01 を中央に配置
+  centerOnIndex(0, false);
+  requestAnimationFrame(() => centerOnIndex(0, false));
+  window.addEventListener('load', () => centerOnIndex(0, false), { once: true });
+
+  const viewport = slider.parentElement;
+  if (viewport && 'ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(() => centerOnIndex(currentIndex, false));
+    resizeObserver.observe(viewport);
+  }
 }
 
 // ============================================================

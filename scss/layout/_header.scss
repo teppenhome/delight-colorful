@@ -2,56 +2,88 @@
 @use "../foundation/mixin" as *;
 
 // ============================================================
-//  HEADER（ヒーロー左上にロゴを重ねて配置）
+//  HEADER（フローティング横並びバー）
 // ============================================================
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 1400px;
+  z-index: 300;
   background: transparent;
-  border-bottom: none;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
 
   @include tab {
-    position: fixed;
-    left: 0;
-    right: 0;
-    width: auto;
-    z-index: 300;
+    width: calc(100% - 24px);
+  }
+
+  @include sp {
+    top: 10px;
+    width: calc(100% - 16px);
   }
 
   &.is-menu-open {
     @include tab {
       z-index: 410;
-      background: $color-white;
     }
   }
 
+  &.is-hidden:not(.is-menu-open) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.7s;
+  }
+
+  &.is-scrolled &__inner {
+    background: rgba($color-white, 0.72);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  // ── 白い丸角バー本体 ──────────────────────────
   &__inner {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding: 40px 48px 0 64px;
-    height: auto;
-    position: relative;
+    gap: 24px;
+    padding: 0 24px 0 28px;
+    height: 100px;
+    background: $color-white;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    transition:
+      background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      -webkit-backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 
     @include tab {
-      align-items: center;
-      width: 100%;
-      max-width: 100%;
-      padding: 20px;
-      box-sizing: border-box;
+      height: 60px;
+      padding: 0 16px 0 20px;
+      border-radius: 30px;
     }
 
     @include sp {
-      padding: 16px;
+      height: 54px;
+      padding: 0 12px 0 16px;
+      border-radius: 27px;
     }
   }
 
+  // ── ロゴ ─────────────────────────────────────
   &__logo {
-    min-width: 0;
-    flex-shrink: 1;
+    flex-shrink: 0;
 
     a {
       display: flex;
@@ -59,36 +91,23 @@
     }
 
     img {
-      height: 48px;
+      height: 36px;
       width: auto;
-      max-width: 100%;
       display: block;
+      transform: translateZ(0);
+      backface-visibility: hidden;
 
       @include sp {
-        height: 30px;
-      }
-
-      &.is-loaded + .header__logo-text {
-        display: none;
+        height: 26px;
       }
     }
   }
 
-  &__logo--side {
-    margin-bottom: 30px;
-
-    img {
-      height: 32px;
-      width: auto;
-      display: block;
-    }
-  }
-
+  // ── ナビゲーション ────────────────────────────
   &__nav {
-    position: absolute;
-    right: 48px;
-    top: 300px;
-    z-index: 20;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 
     @include tab {
       display: none;
@@ -97,64 +116,97 @@
 
   &__nav-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 28px;
+    gap: 60px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     li a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      display: block;
+      font-family: $font-en;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       color: $color-text;
-      line-height: 1.2;
-      transition: opacity 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s ease;
 
       &:hover {
         color: $color-primary;
-        opacity: 1;
       }
     }
   }
 
-  &__nav-contact {
-    display: block;
+  // ── 右側ボタングループ ────────────────────────
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
 
-    img {
-      display: block;
-      width: 72px;
-      height: auto;
+    @include tab {
+      display: none;
     }
   }
 
-  &__nav-en {
-    display: block;
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-sizing: border-box;
+    width: 196px;
+    height: 60px;
+    padding: 0 20px;
+    border-radius: 6px;
     font-family: $font-en;
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 500;
-    font-style: italic;
-    letter-spacing: 0.12em;
-    line-height: 1;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &-icon {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    // CONTACT：青枠・白背景
+    &--contact {
+      border: 1.5px solid $color-text;
+      background: #D1ECFF;
+      color: $color-text;
+
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+      }
+    }
+
+    // RECRUIT：薄黄色背景・枠なし
+    &--recruit {
+      border: 1.5px solid $color-text;
+      background: #F5F0C8;
+      color: $color-text;
+
+      &:hover {
+        background: #f8b013;
+      }
+    }
   }
 
-  &__nav-ja {
-    display: block;
-    margin-top: 6px;
-    font-family: $font-ja;
-    font-size: 1rem;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: 0.05em;
-    color: #0F65A3;
-    line-height: 1;
-  }
-
+  // ── ハンバーガー（タブ・SP） ───────────────────
   &__hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 28px;
-    height: 20px;
     background: none;
     border: none;
     cursor: pointer;

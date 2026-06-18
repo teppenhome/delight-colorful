@@ -4,11 +4,10 @@
 // セクション共通ラベル（英語小見出し）
 .section-label {
   font-family: $font-en;
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: 0.15em;
   color: #0F65A3;
-  margin-bottom: 4px;
 
   @include sp {
     font-size: 18px;
@@ -18,16 +17,28 @@
 
 // セクション共通タイトル
 .section-title {
-  font-family: $font-ja;
-  font-size: 48px;
-  font-weight: 700;
-  color: #343434;
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-weight: 900;
   margin-bottom: 40px;
   line-height: 1.3;
 
+  // 白塗り＋外側だけ線
+  color: white;
+  -webkit-text-stroke: 2px #343434;
+  paint-order: stroke fill; // stroke を先に描いて fill で内側を上書き → 外側のみ線に見える
+
   &__en {
-    font-family: $font-en;
+    font-family: "Inter", sans-serif;
     letter-spacing: 0.1em;
+
+    &.__large {
+      font-size: 96px;
+    }
+
+    &.__italic {
+      font-style: italic;
+    }
 
     &__blue {
       color: #0F65A3;
@@ -47,21 +58,29 @@
     font-size: 24px;
     font-weight: 700;
     color: #343434;
+    -webkit-text-stroke: 0;
     line-height: 1;
-    letter-spacing: 0.2rem;
-  }
+    letter-spacing: 0.3rem;
 
-  &--inline {
-    .section-title__ruby {
-      display: inline-block;
-      margin-top: 0;
-      margin-left: 12px;
-      letter-spacing: 0.1em;
-      vertical-align: middle;
+    &.__white {
+      color: #fff;
     }
   }
 
-  // 英語タイトルのとき
+  &--inline {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+
+    .section-title__ruby {
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 0;
+      letter-spacing: 0.1em;
+      vertical-align: baseline;
+    }
+  }
+
   &--en {
     font-family: $font-en;
     font-size: clamp(28px, 4vw, 48px);
@@ -70,5 +89,26 @@
 
   @include sp {
     font-size: 38px;
+  }
+}
+
+.section-title--contact {
+  .section-title__contact-wrap {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.section-title__mail {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  margin-top: 40px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 }

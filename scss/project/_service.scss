@@ -6,18 +6,19 @@
 // ============================================================
 .service {
   padding: $section-pad-v 0;
+  padding-bottom: 100px;
+  background-color: #0F65A3;
 
   .section-title {
-    text-align: center;
+    text-align: left;
   }
 
   &__lead {
-    text-align: center;
+    text-align: left;
     font-size: 16px;
-    color: $color-text;
+    color: #fff;
     line-height: 2;
     margin-bottom: 60px;
-    font-weight: 700;
 
     @include sp { text-align: left; }
   }
@@ -26,6 +27,7 @@
     display: flex;
     flex-direction: column;
     gap: 48px;
+    align-items: flex-end;
   }
 
   &__step {
@@ -36,8 +38,10 @@
     align-items: flex-start;
     background: $color-white;
     border-radius: 30px;
-    padding: 30px;
+    padding: 40px 60px 6px 100px;
     box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 1000px;
     @include transition(box-shadow);
 
     &:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.08); }
@@ -52,7 +56,6 @@
       font-size: 17px;
       line-height: 2;
       color: $color-text;
-      font-weight: 700;
     }
   }
 
@@ -66,21 +69,21 @@
 
   &__step-label {
     position: absolute;
-    top: -20px;
-    left: 120px;
+    top: 0;
+    left: -60px;
 
     display: inline-block;
-    font-family: $font-en;
-    font-size: 20px;
+    font-family: "Knewave", cursive;
+    font-size: 36px;
     font-weight: 400;
     font-style: italic;
     letter-spacing: 0.1em;
 
-    color: $color-white;
-    background: #0F65A3;
+    color: #343434;
+    background: #F28E55;
 
-    padding: 6px 18px;
-    border-radius: 6px;
+    padding: 10px 22px;
+    border-radius: 10px;
 
     @include sp {
       left: 50%;
@@ -91,10 +94,16 @@
   &__step-title {
     font-family: $font-en;
     font-size: 32px;
-    font-weight: 200;
+    font-weight: 600;
     letter-spacing: 0.05em;
     color: $color-text;
     line-height: 1.6;
     margin-bottom: 12px;
   }
+
+  &__link {
+    text-align: right;
+    margin-top: 30px;
+  }
 }
+

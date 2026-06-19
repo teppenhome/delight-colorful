@@ -91,6 +91,54 @@
     </div>
   </div>
 
+  <header class="header" id="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="#">
+          <img src="images/logo.png" alt="DELIGHT">
+        </a>
+      </h1>
+      <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li>
+            <a href="#about">ABOUT US</a>
+          </li>
+          <li>
+            <a href="#works">WORK</a>
+          </li>
+          <li>
+            <a href="#service">SERVICE</a>
+          </li>
+          <li>
+            <a href="#news">NEWS</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="#contact" class="header__btn header__btn--contact">
+          <img
+            src="images/header-contact.svg"
+            alt=""
+            class="header__btn-icon"
+          >
+          CONTACT
+        </a>
+        <a href="#recruit" class="header__btn header__btn--recruit">
+          RECRUIT
+        </a>
+      </div>
+      <button
+        class="header__hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="drawerPanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
   <main>
 
     <!-- ============================================================
@@ -98,56 +146,11 @@
     ============================================================ -->
     <section class="hero" id="top">
       <div class="hero__bg">
-        <img src="images/hero-image_color.png" alt="">
-      </div>
-
-      <header class="header" id="header">
-        <div class="header__inner">
-          <h1 class="header__logo">
-            <a href="#">
-              <img src="images/logo.png" alt="DELIGHT">
-            </a>
-          </h1>
-          <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
-            <ul class="header__nav-list">
-              <li>
-                <a href="#about">ABOUT US</a>
-              </li>
-              <li>
-                <a href="#works">WORK</a>
-              </li>
-              <li>
-                <a href="#service">SERVICE</a>
-              </li>
-              <li>
-                <a href="#news">NEWS</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="header__actions">
-            <a href="#contact" class="header__btn header__btn--contact">
-              <img
-                src="images/header-contact.svg"
-                alt=""
-                class="header__btn-icon"
-              >
-              CONTACT
-            </a>
-            <a href="#recruit" class="header__btn header__btn--recruit">
-              RECRUIT
-            </a>
-          </div>
-          <button
-            class="header__hamburger"
-            id="hamburger"
-            type="button"
-            aria-label="メニューを開く"
-            aria-expanded="false"
-            aria-controls="drawerPanel">
-            <span></span><span></span><span></span>
-          </button>
+        <div class="hero__image-wrap">
+          <img class="hero__image" src="images/hero-image_color.png" alt="">
         </div>
-      </header>
+        <img class="hero__bottom" src="images/hero-bottom.png" alt="" aria-hidden="true">
+      </div>
 
       <div class="hero__text">
         <div class="hero__line">
@@ -193,13 +196,14 @@
       WORKS SECTION
     ============================================================ -->
     <section class="works" id="works">
-      <div class="works__inner container">
+      <div class="works__head container">
         <h2 class="section-title">
           <span class="section-title__ruby">最新制作実績</span>
           <span class="section-title__en __large">WORK</span>
         </h2>
-    
-        <div class="works__slider-wrap">
+      </div>
+
+      <div class="works__slider-wrap">
           <button
             class="works__arrow works__arrow--prev"
             id="worksPrev"
@@ -359,8 +363,9 @@
             id="worksNext"
             aria-label="次へ">
           </button>
-        </div>     
-    
+        </div>
+
+      <div class="works__foot container">
         <div class="works__link">
           <a href="#" class="c-more-btn">
             WORK ALL

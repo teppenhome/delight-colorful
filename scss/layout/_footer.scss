@@ -8,6 +8,10 @@
 .footer {
   background: #fff;
   padding: 70px 0 0;
+
+  @include sp {
+    padding: 48px 0 0;
+  }
 }
 
 .footer__layout {
@@ -15,11 +19,21 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 80px;
+
+  @include tab {
+    gap: 48px;
+  }
+
+  @include sp {
+    flex-direction: column;
+    gap: 40px;
+  }
 }
 
 .footer__left {
   max-width: 560px;
   width: 100%;
+  min-width: 0;
 }
 
 .footer__logo {
@@ -54,6 +68,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 44px 64px;
+
+  @include sp {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px;
+  }
 }
 
 .footer__title {
@@ -83,10 +102,21 @@
 
 .footer__buttons {
   width: 340px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 90px;
+
+  @include tab {
+    width: 100%;
+    max-width: 340px;
+    margin-top: 0;
+  }
+
+  @include sp {
+    max-width: 100%;
+  }
 }
 
 .footer__button {
@@ -103,6 +133,11 @@
 
   border: 1px solid #343434;
   border-radius: 5px;
+
+  @include sp {
+    height: 72px;
+    font-size: 16px;
+  }
 }
 
 .footer__button--recruit {
@@ -117,6 +152,11 @@
   margin-top: 80px;
   padding: 32px 0;
   text-align: center;
+
+  @include sp {
+    margin-top: 48px;
+    padding: 24px 0;
+  }
 
   p {
     font-family: $font-en;

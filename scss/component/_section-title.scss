@@ -28,12 +28,20 @@
   -webkit-text-stroke: 2px #343434;
   paint-order: stroke fill; // stroke を先に描いて fill で内側を上書き → 外側のみ線に見える
 
+  // @include sp {
+  //   font-size: 38px;
+  // }
+
   &__en {
     font-family: "Inter", sans-serif;
     letter-spacing: 0.1em;
 
     &.__large {
       font-size: 96px;
+
+      @include sp {
+        font-size: 48px;
+      }
     }
 
     &.__italic {
@@ -96,6 +104,7 @@
   .section-title__contact-wrap {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 24px;
   }
 }
@@ -110,5 +119,11 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  @include sp {
+    width: 72px;
+    height: 72px;
+    margin-top: 0;
   }
 }

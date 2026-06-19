@@ -7,25 +7,45 @@
 .header {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 48px);
-  max-width: 1400px;
+  left: max(24px, calc((100% - 1400px) / 2));
+  right: max(24px, calc((100% - 1400px) / 2));
+  width: auto;
   z-index: 300;
   background: transparent;
+  border-radius: 0 0 40px 40px;
+  box-sizing: border-box;
   opacity: 1;
   visibility: visible;
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     visibility 0s linear 0s;
 
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: $color-white;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition:
+      background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      -webkit-backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   @include tab {
-    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    border-radius: 30px;
   }
 
   @include sp {
     top: 10px;
-    width: calc(100% - 16px);
+    left: 8px;
+    right: 8px;
+    border-radius: 27px;
   }
 
   &.is-menu-open {
@@ -43,7 +63,7 @@
       visibility 0s linear 0.7s;
   }
 
-  &.is-scrolled &__inner {
+  &.is-scrolled::before {
     background: rgba($color-white, 0.72);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     backdrop-filter: blur(16px) saturate(160%);
@@ -56,28 +76,19 @@
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    padding: 0 24px 0 28px;
-    height: 100px;
-    background: $color-white;
-    border-radius: 0 0 40px 40px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 20px 32px 20px 28px;
+    min-height: 80px;
     box-sizing: border-box;
-    transition:
-      background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      -webkit-backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      backdrop-filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 
     @include tab {
-      height: 60px;
-      padding: 0 16px 0 20px;
-      border-radius: 30px;
+      min-height: 60px;
+      padding: 8px 16px 8px 20px;
     }
 
     @include sp {
-      height: 54px;
-      padding: 0 12px 0 16px;
-      border-radius: 27px;
+      min-height: 54px;
+      padding: 8px 12px 8px 16px;
     }
   }
 
@@ -106,6 +117,7 @@
   // ── ナビゲーション ────────────────────────────
   &__nav {
     flex: 1;
+    min-width: 0;
     display: flex;
     justify-content: center;
 
@@ -118,7 +130,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -126,7 +138,7 @@
     li a {
       display: block;
       font-family: $font-en;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.1em;
       color: $color-text;
@@ -146,6 +158,7 @@
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    margin-left: auto;
 
     @include tab {
       display: none;
@@ -158,12 +171,13 @@
     justify-content: center;
     gap: 12px;
     box-sizing: border-box;
-    width: 196px;
-    height: 60px;
-    padding: 0 20px;
+    width: 160px;
+    height: 48px;
+    max-height: 100%;
+    padding: 0 16px;
     border-radius: 6px;
     font-family: $font-en;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-decoration: none;
@@ -172,8 +186,8 @@
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &-icon {
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
       display: block;
       flex-shrink: 0;
     }

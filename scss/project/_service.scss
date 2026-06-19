@@ -33,18 +33,24 @@
   &__step {
     position: relative;
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 250px 1fr;
     gap: 40px;
     align-items: flex-start;
     background: $color-white;
     border-radius: 30px;
-    padding: 40px 60px 6px 100px;
+    padding: 40px 40px 6px 100px;
     box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.25);
     width: 100%;
     max-width: 1000px;
     @include transition(box-shadow);
 
     &:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.08); }
+
+    @include tab {
+      padding: 20px;
+      gap: 20px;
+      grid-template-columns: 200px 1fr;
+    }
 
     @include sp {
       grid-template-columns: 1fr;
@@ -56,6 +62,7 @@
       font-size: 17px;
       line-height: 2;
       color: $color-text;
+      letter-spacing: 0.02em;
     }
   }
 
@@ -64,6 +71,14 @@
       border-radius: 8px;
       width: 100%;
       height: auto;
+
+      @include tab {
+        width: 80%;
+      }
+    }
+
+    @include tab {
+      margin-top: 40px;
     }
   }
 
@@ -84,6 +99,12 @@
 
     padding: 10px 22px;
     border-radius: 10px;
+
+    @include tab {
+      font-size: 26px;
+      left: 20px;
+      top: -20px;
+    }
 
     @include sp {
       left: 50%;

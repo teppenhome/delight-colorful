@@ -21,11 +21,11 @@ $works-arrow-icon-height: 21px;
 
   padding: $section-pad-v 0;
   position: relative;
-  overflow-x: visible;
+  overflow-x: clip;
 
-  &__inner {
+  &__head,
+  &__foot {
     position: relative;
-    overflow: visible;
   }
 
   .section-title {
@@ -36,15 +36,18 @@ $works-arrow-icon-height: 21px;
     position: relative;
     display: flex;
     align-items: center;
-    margin-inline: calc(50% - 50vw);
-    overflow: visible;
+    width: 100%;
     touch-action: pan-y;
   }
 
   &__slider-viewport {
     flex: 1 1 auto;
+    width: 100%;
     min-width: 0;
     overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
+    padding-block: 2px;
   }
 
   &__slider {
@@ -60,6 +63,10 @@ $works-arrow-icon-height: 21px;
     &.is-dragging {
       transition: none;
     }
+
+    &.is-loop-continue {
+      transition-duration: 0.45s;
+    }
   }
 
   &__item {
@@ -69,6 +76,7 @@ $works-arrow-icon-height: 21px;
     border: 1px solid #343434;
     border-radius: 18px;
     overflow: hidden;
+    transform: translateZ(0);
     @include transition(box-shadow);
 
     a {

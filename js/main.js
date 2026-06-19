@@ -175,7 +175,7 @@ function initSideNav() {
 
 // ============================================================
 //  WORKS SECTION
-//  カスタムスライダー（前へ / 次へ）
+//  カスタムスライダー（前へ / 次へ・無限ループ）
 // ============================================================
 function initWorksSlider() {
   const slider     = document.getElementById('worksSlider');
@@ -185,13 +185,57 @@ function initWorksSlider() {
 
   if (!slider || !btnPrev || !btnNext || !sliderWrap) return;
 
-  let currentIndex = 0;
-
   const SWIPE_THRESHOLD = 50;
+  const CLONE_CLASS = 'is-clone';
+
+  const getRealItems = () =>
+    Array.from(slider.querySelectorAll(`.works__item:not(.${CLONE_CLASS})`));
 
   const getItems = () => Array.from(slider.querySelectorAll('.works__item'));
 
+  const getRealCount = () => getRealItems().length;
+
+  const removeClones = () => {
+    slider.querySelectorAll(`.works__item.${CLONE_CLASS}`).forEach((el) => el.remove());
+  };
+
+  const setupLoop = () => {
+    removeClones();
+    const realItems = getRealItems();
+    if (realItems.length <= 1) return false;
+
+    const first = realItems[0];
+    const last = realItems[realItems.length - 1];
+
+    const firstClone = first.cloneNode(true);
+    const lastClone = last.cloneNode(true);
+
+    [firstClone, lastClone].forEach((clone) => {
+      clone.classList.add(CLONE_CLASS);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a').forEach((link) => link.setAttribute('tabindex', '-1'));
+    });
+
+    slider.insertBefore(lastClone, first);
+    slider.appendChild(firstClone);
+    return true;
+  };
+
+  const isLooping = setupLoop();
+  const TRANSITION_MS = 800;
+  const CHAIN_TRANSITION_MS = 450;
+  let currentIndex = isLooping ? 1 : 0;
+  let isTransitioning = false;
+  let pendingSteps = 0;
+  let transitionTimer = null;
+  let transitionGeneration = 0;
+
   const getMax = () => Math.max(0, getItems().length - 1);
+  const getRealCountCached = () => getRealCount();
+
+  const forceReflow = () => {
+    void slider.offsetHeight;
+  };
 
   const setTransform = (index, dragOffset = 0, animate = true) => {
     const items = getItems();
@@ -203,40 +247,174 @@ function initWorksSlider() {
 
     slider.classList.toggle('is-dragging', !animate);
 
-    // パディングで中央寄せした上で、先頭カード基準の相対移動にする
     const x = target.offsetLeft - firstItem.offsetLeft - dragOffset;
     slider.style.transform = `translateX(-${x}px)`;
   };
 
-  const update = (animate = true) => {
-    currentIndex = Math.min(Math.max(currentIndex, 0), getMax());
-    setTransform(currentIndex, 0, animate);
+  const syncLoopPosition = () => {
+    if (!isLooping) return false;
+
+    const realCount = getRealCountCached();
+    if (currentIndex === 0) {
+      currentIndex = realCount;
+      setTransform(currentIndex, 0, false);
+      forceReflow();
+      return true;
+    }
+
+    if (currentIndex === realCount + 1) {
+      currentIndex = 1;
+      setTransform(currentIndex, 0, false);
+      forceReflow();
+      return true;
+    }
+
+    return false;
+  };
+
+  const invalidateTransition = () => {
+    transitionGeneration += 1;
+    clearTransitionTimer();
+  };
+
+  const runAnimatedUpdate = (duration = TRANSITION_MS) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (duration < TRANSITION_MS) {
+          slider.classList.add('is-loop-continue');
+        }
+        update(true, duration);
+      });
+    });
+  };
+
+  const applyPendingAfterLoopSnap = (snapIndex) => {
+    invalidateTransition();
+    currentIndex = snapIndex;
+    setTransform(currentIndex, 0, false);
+    forceReflow();
+
+    const steps = pendingSteps;
+    pendingSteps = 0;
+    if (steps === 0) {
+      isTransitioning = false;
+      return;
+    }
+
+    currentIndex += steps;
+    runAnimatedUpdate(CHAIN_TRANSITION_MS);
+  };
+
+  const tryFastForwardLoop = () => {
+    if (!isLooping || !isTransitioning || pendingSteps === 0) return;
+
+    const realCount = getRealCountCached();
+
+    if (pendingSteps > 0 && currentIndex === realCount + 1) {
+      applyPendingAfterLoopSnap(1);
+    } else if (pendingSteps < 0 && currentIndex === 0) {
+      applyPendingAfterLoopSnap(realCount);
+    }
+  };
+
+  const updateButtons = () => {
+    if (isLooping) {
+      btnPrev.disabled = false;
+      btnNext.disabled = false;
+      btnPrev.style.opacity = '1';
+      btnNext.style.opacity = '1';
+      return;
+    }
 
     btnPrev.disabled = currentIndex === 0;
     btnNext.disabled = currentIndex >= getMax();
-
     btnPrev.style.opacity = btnPrev.disabled ? '0.3' : '1';
     btnNext.style.opacity = btnNext.disabled ? '0.3' : '1';
   };
 
+  const clearTransitionTimer = () => {
+    if (transitionTimer !== null) {
+      clearTimeout(transitionTimer);
+      transitionTimer = null;
+    }
+  };
+
+  const finishTransition = (generation) => {
+    if (!isTransitioning) return;
+    if (generation !== undefined && generation !== transitionGeneration) return;
+
+    clearTransitionTimer();
+    slider.classList.remove('is-loop-continue');
+    syncLoopPosition();
+
+    if (pendingSteps !== 0) {
+      const steps = pendingSteps;
+      pendingSteps = 0;
+      currentIndex += steps;
+      runAnimatedUpdate(CHAIN_TRANSITION_MS);
+      return;
+    }
+
+    isTransitioning = false;
+  };
+
+  const startTransition = (duration = TRANSITION_MS) => {
+    isTransitioning = true;
+    transitionGeneration += 1;
+    const generation = transitionGeneration;
+    clearTransitionTimer();
+    transitionTimer = setTimeout(() => finishTransition(generation), duration + 50);
+  };
+
+  const update = (animate = true, duration = TRANSITION_MS) => {
+    if (!isLooping) {
+      currentIndex = Math.min(Math.max(currentIndex, 0), getMax());
+    }
+
+    setTransform(currentIndex, 0, animate);
+    updateButtons();
+    if (animate) startTransition(duration);
+  };
+
   const centerOnIndex = (index, animate = false) => {
+    pendingSteps = 0;
+    invalidateTransition();
+    isTransitioning = false;
     currentIndex = index;
     update(animate);
     slider.classList.add('is-ready');
   };
 
-  btnPrev.addEventListener('click', () => {
+  const goPrev = () => {
+    if (isTransitioning) {
+      pendingSteps--;
+      tryFastForwardLoop();
+      return;
+    }
     currentIndex--;
     update();
-  });
+  };
 
-  btnNext.addEventListener('click', () => {
+  const goNext = () => {
+    if (isTransitioning) {
+      pendingSteps++;
+      tryFastForwardLoop();
+      return;
+    }
     currentIndex++;
     update();
+  };
+
+  slider.addEventListener('transitionend', (e) => {
+    if (e.target !== slider || e.propertyName !== 'transform') return;
+    finishTransition(transitionGeneration);
   });
 
+  btnPrev.addEventListener('click', goPrev);
+  btnNext.addEventListener('click', goNext);
+
   window.addEventListener('resize', () => {
-    centerOnIndex(0);
+    centerOnIndex(isLooping ? Math.max(1, currentIndex) : 0, false);
   }, { passive: true });
 
   // タッチスワイプ
@@ -271,9 +449,11 @@ function initWorksSlider() {
     touchDeltaX = deltaX;
 
     let dragOffset = touchDeltaX;
-    const max = getMax();
-    if (currentIndex === 0 && dragOffset > 0) dragOffset *= 0.35;
-    if (currentIndex >= max && dragOffset < 0) dragOffset *= 0.35;
+    if (!isLooping) {
+      const max = getMax();
+      if (currentIndex === 0 && dragOffset > 0) dragOffset *= 0.35;
+      if (currentIndex >= max && dragOffset < 0) dragOffset *= 0.35;
+    }
 
     setTransform(currentIndex, dragOffset, false);
   }, { passive: false });
@@ -281,18 +461,18 @@ function initWorksSlider() {
   const finishTouch = () => {
     if (!isTouchDragging) return;
 
-    const max = getMax();
     preventClick = Math.abs(touchDeltaX) > 10;
 
-    if (touchDeltaX < -SWIPE_THRESHOLD && currentIndex < max) {
-      currentIndex++;
-    } else if (touchDeltaX > SWIPE_THRESHOLD && currentIndex > 0) {
-      currentIndex--;
+    if (touchDeltaX < -SWIPE_THRESHOLD) {
+      goNext();
+    } else if (touchDeltaX > SWIPE_THRESHOLD) {
+      goPrev();
+    } else {
+      update();
     }
 
     isTouchDragging = false;
     touchDeltaX = 0;
-    update();
   };
 
   sliderWrap.addEventListener('touchend', finishTouch, { passive: true });
@@ -305,10 +485,9 @@ function initWorksSlider() {
     preventClick = false;
   }, true);
 
-  // 初期表示は Pickup.01 を中央に配置
-  centerOnIndex(0, false);
-  requestAnimationFrame(() => centerOnIndex(0, false));
-  window.addEventListener('load', () => centerOnIndex(0, false), { once: true });
+  centerOnIndex(currentIndex, false);
+  requestAnimationFrame(() => centerOnIndex(currentIndex, false));
+  window.addEventListener('load', () => centerOnIndex(currentIndex, false), { once: true });
 
   const viewport = slider.parentElement;
   if (viewport && 'ResizeObserver' in window) {

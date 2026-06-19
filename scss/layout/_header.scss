@@ -70,6 +70,35 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 
+  &.is-dark::before {
+    background: $color-primary;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &.is-dark {
+    .header__nav-list li a {
+      color: $color-white;
+
+      &:hover {
+        color: rgba($color-white, 0.75);
+      }
+    }
+
+    .header__logo img {
+      filter: brightness(0) invert(1);
+    }
+
+    .header__hamburger span {
+      background: $color-white;
+    }
+
+    .header__hamburger.is-active span {
+      background: $color-white;
+    }
+  }
+
   // ── 白い丸角バー本体 ──────────────────────────
   &__inner {
     display: flex;

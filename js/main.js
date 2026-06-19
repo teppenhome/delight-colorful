@@ -28,6 +28,9 @@ function initHeader() {
   if (!header) return;
 
   const contact = document.querySelector('.contact');
+  const darkSections = ['#about', '#works', '#news', '#clients']
+    .map((selector) => document.querySelector(selector))
+    .filter(Boolean);
   const hideAt = () => window.innerHeight * 0.2;
   const SHOW_BUFFER = 140;
   const ANIMATION_MS = 700;
@@ -68,12 +71,24 @@ function initHeader() {
     }
   };
 
+  const syncHeaderTheme = () => {
+    const headerBottom = header.getBoundingClientRect().bottom;
+    const isDark = darkSections.some((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top < headerBottom && rect.bottom > 0;
+    });
+
+    header.classList.toggle('is-dark', isDark);
+  };
+
   const onScroll = () => {
     if (window.scrollY > 40) {
       header.classList.add('is-scrolled');
     } else {
       header.classList.remove('is-scrolled');
     }
+
+    syncHeaderTheme();
 
     if (contact) {
       syncHeaderVisibility(contact.getBoundingClientRect().top);

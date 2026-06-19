@@ -182,10 +182,26 @@
     opacity 0.3s ease,
     visibility 0.3s ease;
 
-  img {
-    width: 100%;
-    height: auto;
+  &__icon {
     display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__circle {
+    fill: $color-white;
+    stroke: $color-text;
+    stroke-width: 1;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+
+  &__arrow {
+    fill: none;
+    stroke: $color-text;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease;
   }
 
   &.is-visible {
@@ -194,8 +210,17 @@
     pointer-events: auto;
   }
 
-  &:hover {
-    opacity: 0.85;
+  &.is-visible:hover {
+    opacity: 1;
+
+    .page-top__circle {
+      fill: $color-primary;
+      stroke: $color-primary;
+    }
+
+    .page-top__arrow {
+      stroke: $color-white;
+    }
   }
 
   @include sp {

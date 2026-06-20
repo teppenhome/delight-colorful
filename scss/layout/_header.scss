@@ -38,14 +38,13 @@
   @include tab {
     left: 12px;
     right: 12px;
-    border-radius: 30px;
+    border-radius: 0 0 30px 30px;
   }
 
   @include sp {
-    top: 10px;
     left: 8px;
     right: 8px;
-    border-radius: 27px;
+    border-radius: 0 0 27px 27px;
   }
 
   &.is-menu-open {

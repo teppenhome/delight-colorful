@@ -1,0 +1,397 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  WORK ARCHIVE PAGE（一覧ページ専用）
+//  トップの .works セクションとは独立した命名
+// ============================================================
+
+body.page-work {
+  .header__nav-list li a.is-current {
+    color: $color-primary;
+  }
+}
+
+.work-archive {
+  padding: 140px 0 100px;
+  background: $color-white;
+
+  @include sp {
+    padding: 110px 0 72px;
+  }
+
+  // ── パンくず ──────────────────────────────────────
+  &__breadcrumb {
+    max-width: $container-width;
+    margin: 0 auto 48px;
+    padding: 0 40px;
+    font-family: $font-en;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+
+    @include sp {
+      margin-bottom: 32px;
+      padding: 0 20px;
+      font-size: 12px;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    span {
+      margin: 0 8px;
+    }
+  }
+
+  // ── ページタイトル ────────────────────────────────
+  &__hero {
+    text-align: center;
+    margin-bottom: 56px;
+    padding: 0 40px;
+
+    @include sp {
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: $font-en;
+      font-size: clamp(56px, 10vw, 96px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      color: $color-primary;
+    }
+
+    p {
+      margin: 16px 0 0;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: $color-text;
+    }
+  }
+
+  // ── フィルター ────────────────────────────────────
+  &__filter {
+    max-width: $container-width;
+    margin: 0 auto 48px;
+    padding: 0 40px;
+
+    @include sp {
+      margin-bottom: 36px;
+      padding: 0 20px;
+    }
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+
+    @include sp {
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    button {
+      appearance: none;
+      border: 1px solid $color-text;
+      border-radius: 999px;
+      background: $color-white;
+      padding: 8px 24px;
+      font-family: $font-ja;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: $color-text;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+      @include sp {
+        padding: 6px 16px;
+        font-size: 13px;
+      }
+
+      &:hover {
+        opacity: 1;
+        border-color: $color-primary;
+        color: $color-primary;
+      }
+
+      &.is-active {
+        background: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+    max-width: 880px;
+    margin: 0 auto;
+
+    @include sp {
+      gap: 10px 20px;
+      justify-content: flex-start;
+    }
+
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-text;
+      cursor: pointer;
+      user-select: none;
+
+      @include sp {
+        font-size: 13px;
+      }
+
+      input[type="checkbox"] {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        border: 1px solid $color-text;
+        border-radius: 2px;
+        background: $color-white;
+        flex-shrink: 0;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.2s ease, border-color 0.2s ease;
+
+        &:checked {
+          background: $color-primary;
+          border-color: $color-primary;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid $color-white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      &:hover input[type="checkbox"]:not(:checked) {
+        border-color: $color-primary;
+      }
+    }
+  }
+
+  // ── 実績グリッド ──────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: $container-width;
+    margin: 0 auto 64px;
+    padding: 0 40px;
+
+    @include tab {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include sp {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+      padding: 0 20px;
+    }
+  }
+
+  &__card {
+    aspect-ratio: 360 / 240;
+    background: #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+
+      &:hover {
+        opacity: 1;
+
+        img {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  // ── ページネーション ──────────────────────────────
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-family: $font-en;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+
+    @include sp {
+      gap: 16px;
+      padding: 0 20px;
+      font-size: 14px;
+    }
+
+    a {
+      color: $color-text-sub;
+      opacity: 1;
+      transition: color 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        color: $color-primary;
+      }
+
+      &[aria-current="page"] {
+        color: $color-primary;
+        font-weight: 700;
+        pointer-events: none;
+      }
+    }
+
+    > a:first-child,
+    > a:last-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: $color-text;
+      font-weight: 500;
+    }
+
+    > a:first-child::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-left: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg);
+      margin-right: 2px;
+    }
+
+    > a:last-child::after {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-right: 1px solid currentColor;
+      border-top: 1px solid currentColor;
+      transform: rotate(45deg);
+      margin-left: 2px;
+    }
+
+    ol {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include sp {
+        gap: 12px;
+      }
+    }
+
+    li a {
+      display: block;
+      min-width: 1em;
+      text-align: center;
+    }
+  }
+}
+
+// ── 右固定ボタン（一覧ページ） ────────────────────────
+.page-work {
+  .float-contact {
+    position: fixed;
+    right: 40px;
+    bottom: 108px;
+    z-index: 100;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid $color-text;
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    img {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    &:hover {
+      opacity: 1;
+      background: $color-primary;
+      border-color: $color-primary;
+
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    @include sp {
+      right: 20px;
+      bottom: 98px;
+      width: 48px;
+      height: 48px;
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  .page-top {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}

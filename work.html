@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORK | DELIGHT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-work">
+
+  <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
+    <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <div class="drawer__panel" id="drawerPanel" tabindex="-1">
+      <nav class="drawer__nav" aria-label="ドロワーメニュー">
+        <ul class="drawer__list">
+          <li class="drawer__item">
+            <a href="index.html#about" class="drawer__link">
+              <span class="drawer__en">ABOUT US</span>
+              <span class="drawer__ja">会社概要</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="work.html" class="drawer__link">
+              <span class="drawer__en">WORKS</span>
+              <span class="drawer__ja">制作実績</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="index.html#service" class="drawer__link">
+              <span class="drawer__en">SERVICE</span>
+              <span class="drawer__ja">できること</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="index.html#news" class="drawer__link">
+              <span class="drawer__en">NEWS</span>
+              <span class="drawer__ja">お知らせ</span>
+            </a>
+          </li>
+          <li class="drawer__item drawer__item--contact">
+            <a href="index.html#contact" class="drawer__link drawer__link--contact">
+              <img src="images/contact.png" alt="お問い合わせ">
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header class="header is-scrolled" id="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="DELIGHT">
+        </a>
+      </h1>
+      <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li>
+            <a href="index.html#about">ABOUT US</a>
+          </li>
+          <li>
+            <a href="work.html" class="is-current" aria-current="page">WORK</a>
+          </li>
+          <li>
+            <a href="index.html#service">SERVICE</a>
+          </li>
+          <li>
+            <a href="index.html#news">NEWS</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="index.html#contact" class="header__btn header__btn--contact">
+          <img
+            src="images/header-contact.svg"
+            alt=""
+            class="header__btn-icon"
+          >
+          CONTACT
+        </a>
+        <a href="index.html#recruit" class="header__btn header__btn--recruit">
+          RECRUIT
+        </a>
+      </div>
+      <button
+        class="header__hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="drawerPanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="work-archive" id="top">
+
+    <div class="work-archive__breadcrumb">
+      <a href="index.html">TOP</a>
+      <span>&gt;</span>
+      <span>WORK</span>
+    </div>
+
+    <div class="work-archive__hero">
+      <h1>WORK</h1>
+      <p>業務実績</p>
+    </div>
+
+    <div class="work-archive__filter">
+      <div class="work-archive__categories">
+        <button type="button" class="is-active">すべて</button>
+        <button type="button">アパレル</button>
+        <button type="button">エンタメ</button>
+        <button type="button">水族館</button>
+        <button type="button">動物園</button>
+        <button type="button">スポーツ</button>
+        <button type="button">推し活</button>
+        <button type="button">その他</button>
+      </div>
+
+      <div class="work-archive__tags">
+        <label>
+          <input type="checkbox" name="tag" value="tshirt" checked>
+          Tシャツ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="plush">
+          ぬいぐるみ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="keychain">
+          キーホルダー
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="calendar">
+          カレンダー
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="card-case">
+          カード入れ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="towel">
+          タオル・ハンカチ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="bag">
+          バッグ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="pouch">
+          ポーチ
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="hat">
+          帽子
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="stationery">
+          文房具
+        </label>
+        <label>
+          <input type="checkbox" name="tag" value="goods">
+          小物・置き物
+        </label>
+      </div>
+    </div>
+
+    <div class="work-archive__grid">
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/e8e8e8/999999?text=Work+01" alt="制作実績01">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+02" alt="制作実績02">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+03" alt="制作実績03">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+04" alt="制作実績04">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+05" alt="制作実績05">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+06" alt="制作実績06">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+07" alt="制作実績07">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+08" alt="制作実績08">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+09" alt="制作実績09">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+10" alt="制作実績10">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+11" alt="制作実績11">
+        </a>
+      </article>
+
+      <article class="work-archive__card">
+        <a href="work-detail.html">
+          <img src="https://placehold.co/720x480/d9d9d9/999999?text=Work+12" alt="制作実績12">
+        </a>
+      </article>
+
+    </div>
+
+    <nav class="work-archive__pagination" aria-label="ページネーション">
+      <a href="#">BACK</a>
+      <ol>
+        <li><a href="#" aria-current="page">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+      </ol>
+      <a href="#">NEXT</a>
+    </nav>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+
+      <div class="footer__layout">
+
+        <div class="footer__left">
+          <a href="index.html" class="footer__logo">
+            <img src="images/logo.png" alt="DELIGHT">
+          </a>
+
+          <p class="footer__index">INDEX</p>
+          <div class="footer__line"></div>
+
+          <div class="footer__nav">
+            <div class="footer__col">
+              <a href="index.html#about" class="footer__title">ABOUT</a>
+              <ul>
+                <li><a href="#">会社について</a></li>
+                <li><a href="#">仕事の流れ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="index.html#news" class="footer__title">NEWS</a>
+              <ul>
+                <li><a href="#">お知らせ一覧</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="index.html#company" class="footer__title">COMPANY</a>
+              <ul>
+                <li><a href="#">会社概要</a></li>
+                <li><a href="#">企業理念</a></li>
+                <li><a href="#">アクセス</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="work.html" class="footer__title">WORK</a>
+              <ul>
+                <li><a href="work.html">業務実績一覧</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="index.html#service" class="footer__title">SERVICE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__buttons">
+          <a href="#" class="footer__button footer__button--recruit">RECRUIT</a>
+          <a href="index.html#contact" class="footer__button footer__button--contact">CONTACT</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer__copyright">
+      <p>&copy; DELIGHT All rights reserved</p>
+    </div>
+  </footer>
+
+  <a href="index.html#contact" class="float-contact" aria-label="お問い合わせ">
+    <img src="images/mail-icon.svg" alt="">
+  </a>
+
+  <a href="#top" id="pageTop" class="page-top" aria-label="ページ上部へ戻る">
+    <svg class="page-top__icon" viewBox="0 0 52 52" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <circle class="page-top__circle" cx="26" cy="26" r="24" />
+      <path class="page-top__arrow" d="M26 19 L16 29 M26 19 L36 29" />
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

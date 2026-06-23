@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>しょうひん名 | WORK | DELIGHT</title>
+  <title>アクセス | ABOUT US | DELIGHT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Montserrat:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="page-work-detail">
+<body class="page-access">
 
   <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
     <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
@@ -17,7 +17,7 @@
       <nav class="drawer__nav" aria-label="ドロワーメニュー">
         <ul class="drawer__list">
           <li class="drawer__item">
-            <a href="index.html#about" class="drawer__link">
+            <a href="about.html" class="drawer__link">
               <span class="drawer__en">ABOUT US</span>
               <span class="drawer__ja">会社概要</span>
             </a>
@@ -60,10 +60,10 @@
       <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
         <ul class="header__nav-list">
           <li>
-            <a href="index.html#about">ABOUT US</a>
+            <a href="about.html" class="is-current" aria-current="page">ABOUT US</a>
           </li>
           <li>
-            <a href="work.html" class="is-current" aria-current="page">WORK</a>
+            <a href="work.html">WORK</a>
           </li>
           <li>
             <a href="index.html#service">SERVICE</a>
@@ -82,7 +82,7 @@
           >
           CONTACT
         </a>
-        <a href="index.html#recruit" class="header__btn header__btn--recruit">
+        <a href="recruit.html" class="header__btn header__btn--recruit">
           RECRUIT
         </a>
       </div>
@@ -98,86 +98,113 @@
     </div>
   </header>
 
-  <main class="work-detail" id="top">
+  <main class="access-page" id="top">
 
-    <div class="work-detail__breadcrumb">
+    <div class="access-page__breadcrumb">
       <a href="index.html">TOP</a>
       <span>&gt;</span>
-      <a href="work.html">WORK</a>
+      <a href="about.html">ABOUT US</a>
       <span>&gt;</span>
-      <span>しょうひん名</span>
+      <span>アクセス</span>
     </div>
 
-    <article class="work-detail__inner">
+    <div class="access-page__layout">
 
-      <div class="work-detail__content">
+      <div class="access-page__content">
 
-        <header class="work-detail__header">
-          <p class="work-detail__client">会社名会社名会社名会社名</p>
-          <h1 class="work-detail__title">商品名商品名商品名商品名商品名</h1>
-        </header>
-
-        <div class="work-detail__body">
-          <p>ああああああああああああああああああああああああああああああああああああ</p>
-          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        <div class="access-page__hero c-page-hero">
+          <h1 class="c-page-title __mini">ACCESS</h1>
+          <p class="c-page-subtitle __mini">交通手段</p>
         </div>
 
-        <dl class="work-detail__info">
-          <div class="work-detail__info-row">
-            <dt>CLIENT:</dt>
-            <dd>社名が入ります</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>LAUNCH:</dt>
-            <dd>2026/06/21</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>OUR WORKS:</dt>
-            <dd>デザインなどの担当箇所</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>URL:</dt>
-            <dd><a href="https://example.com" target="_blank" rel="noopener noreferrer">https://example.com</a></dd>
-          </div>
-        </dl>
+        <div class="access-page__info-map">
+          <div class="access-page__info">
+            <p class="access-page__company-name">株式会社 DELIGHT（株式会社ディライト）</p>
+            <address class="access-page__address">
+              〒222-0033<br>
+              神奈川県横浜市港北区新横浜3-1-4 プラスタリアビル402
+            </address>
+            <p class="access-page__contact">電話 045-577-0268／FAX 045-577-0269</p>
+            <a
+              href="/"
+              class="access-page__map-btn"
+              target="_blank"
+              rel="noopener noreferrer">
 
-        <ul class="work-detail__updates">
-          <li class="work-detail__updates-item">
-            <time datetime="2020-04-01">2020/04/01</time>
-            <p>〇〇〇で取り上げられました</p>
-          </li>
-          <li class="work-detail__updates-item">
-            <time datetime="2020-01-30">2020/01/30</time>
-            <p>〇〇〇で取り上げられました</p>
-          </li>
-        </ul>
+              <span class="access-page__map-btn-text">
+                <span class="font-sub">Google Map</span> を開く
+              </span>
 
-      </div>
+              <span class="access-page__map-btn-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M3 12H21M21 12L12 3M21 12L12 21"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
 
-      <div class="work-detail__media">
-        <div class="work-detail__visual">
-          <img src="images/work/work-sample01.png" alt="しょうひん名 メインビジュアル">
-        </div>
-        <div class="work-detail__gallery">
-          <figure class="work-detail__gallery-item">
-            <img src="https://placehold.co/480x480/d9d9d9/999999?text=Gallery+01" alt="制作実績ギャラリー01">
-          </figure>
-          <figure class="work-detail__gallery-item">
-            <img src="https://placehold.co/480x480/d9d9d9/999999?text=Gallery+02" alt="制作実績ギャラリー02">
+          <figure class="access-page__map-image">
+            <img src="images/access/access-map.png" alt="新横浜駅周辺アクセスマップ">
           </figure>
         </div>
+
+        <div class="access-page__directions">
+          <h2 class="access-page__directions-title">【当社へのアクセス】</h2>
+
+          <div class="access-page__directions-item">
+            <h3 class="access-page__directions-heading">JR・新幹線「新横浜駅」からお越しの場合</h3>
+            <p>横浜アリーナ方面出口より徒歩約10分</p>
+          </div>
+
+          <div class="access-page__directions-item">
+            <h3 class="access-page__directions-heading">横浜市営地下鉄ブルーライン・相鉄新横浜線・東急新横浜線からお越しの場合</h3>
+            <p>「新横浜駅」8番出口より徒歩約8分</p>
+          </div>
+
+          <div class="access-page__directions-item">
+            <h3 class="access-page__directions-heading">「羽田空港」からお越しの場合</h3>
+            <ol class="access-page__directions-list">
+              <li>第1・第2・第3ターミナルより、空港連絡バス（リムジンバス）「新横浜駅・新横浜プリンスホテル行き」にお乗りください。</li>
+              <li>「新横浜プリンスホテル」で下車してください。</li>
+              <li>ホテルより徒歩約8分です。</li>
+            </ol>
+            <p class="access-page__directions-link">
+              <a href="#" target="_blank" rel="noopener noreferrer">時刻表 &gt;</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="access-page__actions">
+          <a href="work.html" class="c-sub-btn c-sub-btn--en access-page__list-back">WORK LIST</a>
+          <a href="index.html" class="c-sub-btn access-page__top-back">TOPにもどる</a>
+        </div>
+
       </div>
 
-    </article>
+      <aside class="access-page__side-nav" aria-label="セクションナビゲーション">
+        <nav class="access-page__side-nav-inner">
+          <div class="access-page__side-nav-group is-active">
+            <p class="access-page__side-nav-title">ABOUT US</p>
+            <ul class="access-page__side-nav-list">
+              <li><a href="#">会社概要</a></li>
+              <li><a href="philosophy.html">企業理念</a></li>
+              <li><a href="message.html">代表挨拶</a></li>
+              <li><a href="access.html" class="is-current" aria-current="page">アクセス</a></li>
+            </ul>
+          </div>
+          <a href="work.html" class="access-page__side-nav-item">WORK</a>
+          <a href="index.html#service" class="access-page__side-nav-item">SERVICE</a>
+          <a href="news.html" class="access-page__side-nav-item">NEWS</a>
+        </nav>
+      </aside>
 
-    <nav class="work-detail__nav" aria-label="前後の制作実績">
-      <div class="work-detail__nav-inner">
-        <a href="#" class="work-detail__pager work-detail__pager--prev">BACK</a>
-        <a href="work.html" class="c-sub-btn c-sub-btn--en work-detail__list-back">WORK LIST</a>
-        <a href="#" class="work-detail__pager work-detail__pager--next">NEXT</a>
-        <a href="index.html" class="c-sub-btn work-detail__top-back">TOPにもどる</a>
-      </div>
-    </nav>
+    </div>
 
   </main>
 
@@ -196,7 +223,7 @@
 
           <div class="footer__nav">
             <div class="footer__col">
-              <a href="index.html#about" class="footer__title">ABOUT</a>
+              <a href="about.html" class="footer__title">ABOUT</a>
               <ul>
                 <li><a href="#">会社について</a></li>
                 <li><a href="#">仕事の流れ</a></li>
@@ -215,7 +242,7 @@
               <ul>
                 <li><a href="#">会社概要</a></li>
                 <li><a href="#">企業理念</a></li>
-                <li><a href="#">アクセス</a></li>
+                <li><a href="access.html">アクセス</a></li>
               </ul>
             </div>
 
@@ -233,7 +260,7 @@
         </div>
 
         <div class="footer__buttons">
-          <a href="#" class="footer__button footer__button--recruit">RECRUIT</a>
+          <a href="recruit.html" class="footer__button footer__button--recruit">RECRUIT</a>
           <a href="index.html#contact" class="footer__button footer__button--contact">CONTACT</a>
         </div>
 

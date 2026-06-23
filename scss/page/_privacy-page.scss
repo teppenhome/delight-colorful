@@ -1,0 +1,149 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  PRIVACY PAGE（個人情報保護方針・固定ページ専用）
+// ============================================================
+
+.privacy-page {
+  padding: 140px 0 100px;
+  background: $color-white;
+
+  @include sp {
+    padding: 110px 0 72px;
+  }
+
+  // ── パンくず ──────────────────────────────────────
+  &__breadcrumb {
+    max-width: $container-width;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+    font-family: $font-en;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+
+    @include sp {
+      margin-bottom: 28px;
+      padding: 0 20px;
+      font-size: 12px;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    span {
+      margin: 0 8px;
+    }
+  }
+
+  // ── コンテンツラッパー ──────────────────────────
+  &__inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include sp {
+      padding: 0 20px;
+    }
+  }
+
+  // ── 冒頭文 ──────────────────────────────────────
+  &__intro {
+    margin-bottom: 40px;
+
+    @include sp {
+      margin-bottom: 32px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 2.2;
+      color: $color-text;
+    }
+  }
+
+  // ── 方針セクション ──────────────────────────────
+  &__section {
+    margin-bottom: 56px;
+
+    @include sp {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__section-title {
+    margin: 0 0 32px;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #343434;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    text-align: left;
+    color: $color-text;
+
+    @include sp {
+      margin-bottom: 24px;
+      padding: 16px 0;
+      font-size: 15px;
+    }
+  }
+
+  // ── 本文 ────────────────────────────────────────
+  &__content {
+    p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 2.2;
+      color: $color-text;
+    }
+  }
+
+  &__lead {
+    margin-bottom: 28px !important;
+
+    @include sp {
+      margin-bottom: 24px !important;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include sp {
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    p {
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  // ── TOPへ戻る ────────────────────────────────────
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__top-back {
+    width: auto;
+  }
+}

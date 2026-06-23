@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>しょうひん名 | WORK | DELIGHT</title>
+  <title>ABOUT US | DELIGHT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Montserrat:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="page-work-detail">
+<body class="page-about">
 
   <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
     <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
@@ -17,7 +17,7 @@
       <nav class="drawer__nav" aria-label="ドロワーメニュー">
         <ul class="drawer__list">
           <li class="drawer__item">
-            <a href="index.html#about" class="drawer__link">
+            <a href="about.html" class="drawer__link">
               <span class="drawer__en">ABOUT US</span>
               <span class="drawer__ja">会社概要</span>
             </a>
@@ -60,10 +60,10 @@
       <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
         <ul class="header__nav-list">
           <li>
-            <a href="index.html#about">ABOUT US</a>
+            <a href="about.html" class="is-current" aria-current="page">ABOUT US</a>
           </li>
           <li>
-            <a href="work.html" class="is-current" aria-current="page">WORK</a>
+            <a href="work.html">WORK</a>
           </li>
           <li>
             <a href="index.html#service">SERVICE</a>
@@ -98,86 +98,83 @@
     </div>
   </header>
 
-  <main class="work-detail" id="top">
+  <main class="about-page" id="top">
 
-    <div class="work-detail__breadcrumb">
+    <div class="about-page__breadcrumb">
       <a href="index.html">TOP</a>
       <span>&gt;</span>
-      <a href="work.html">WORK</a>
-      <span>&gt;</span>
-      <span>しょうひん名</span>
+      <span>ABOUT US</span>
     </div>
 
-    <article class="work-detail__inner">
+    <div class="about-page__layout">
 
-      <div class="work-detail__content">
+      <div class="about-page__content">
 
-        <header class="work-detail__header">
-          <p class="work-detail__client">会社名会社名会社名会社名</p>
-          <h1 class="work-detail__title">商品名商品名商品名商品名商品名</h1>
-        </header>
-
-        <div class="work-detail__body">
-          <p>ああああああああああああああああああああああああああああああああああああ</p>
-          <p>ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ</p>
+        <div class="about-page__hero c-page-hero c-page-hero--center">
+          <h1 class="c-page-title">ABOUT US</h1>
+          <p class="c-page-subtitle">私たちについて</p>
         </div>
 
-        <dl class="work-detail__info">
-          <div class="work-detail__info-row">
-            <dt>CLIENT:</dt>
-            <dd>社名が入ります</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>LAUNCH:</dt>
-            <dd>2026/06/21</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>OUR WORKS:</dt>
-            <dd>デザインなどの担当箇所</dd>
-          </div>
-          <div class="work-detail__info-row">
-            <dt>URL:</dt>
-            <dd><a href="https://example.com" target="_blank" rel="noopener noreferrer">https://example.com</a></dd>
-          </div>
-        </dl>
+        <div class="about-page__body">
+          <p>私たちが目指しているのは、単に商品を提供することではありません。<br />お客様の想いに寄り添い、企画からデザイン、製造までを一貫して支えながら、人の心を動かす価値を創り出すこと。<br />そして、そのものづくりの過程そのものを、お客様にも私たち自身にも楽しんでいただくことを大切にしています。</p>
+          <p>私たちが掲げる「DELIGHT」には、そんな想いが込められています。<br />ものづくりを通じて生まれる喜びや感動が、人から人へ、そして未来へと広がっていくことを信じています。<br />DELIGHTに込めた理念や価値観、私たちの歩みについてご紹介します。</p>
+        </div>
 
-        <ul class="work-detail__updates">
-          <li class="work-detail__updates-item">
-            <time datetime="2020-04-01">2020/04/01</time>
-            <p>〇〇〇で取り上げられました</p>
-          </li>
-          <li class="work-detail__updates-item">
-            <time datetime="2020-01-30">2020/01/30</time>
-            <p>〇〇〇で取り上げられました</p>
-          </li>
-        </ul>
+        <nav class="about-page__links" aria-label="下層ページ">
+          <a href="#" class="about-page__link-btn">
+            <span class="about-page__link-btn-text">会社概要</span>
+            <span class="about-page__link-btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="philosophy.html" class="about-page__link-btn">
+            <span class="about-page__link-btn-text">企業理念</span>
+            <span class="about-page__link-btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="message.html" class="about-page__link-btn">
+            <span class="about-page__link-btn-text">代表挨拶</span>
+            <span class="about-page__link-btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="access.html" class="about-page__link-btn">
+            <span class="about-page__link-btn-text">アクセス</span>
+            <span class="about-page__link-btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M21 12L12 3M21 12L12 21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        </nav>
 
       </div>
 
-      <div class="work-detail__media">
-        <div class="work-detail__visual">
-          <img src="images/work/work-sample01.png" alt="しょうひん名 メインビジュアル">
-        </div>
-        <div class="work-detail__gallery">
-          <figure class="work-detail__gallery-item">
-            <img src="https://placehold.co/480x480/d9d9d9/999999?text=Gallery+01" alt="制作実績ギャラリー01">
-          </figure>
-          <figure class="work-detail__gallery-item">
-            <img src="https://placehold.co/480x480/d9d9d9/999999?text=Gallery+02" alt="制作実績ギャラリー02">
-          </figure>
-        </div>
-      </div>
+      <aside class="about-page__side-nav" aria-label="セクションナビゲーション">
+        <nav class="about-page__side-nav-inner">
+          <div class="about-page__side-nav-group is-active">
+            <p class="about-page__side-nav-title">ABOUT US</p>
+            <ul class="about-page__side-nav-list">
+              <li><a href="#">会社概要</a></li>
+              <li><a href="philosophy.html">企業理念</a></li>
+              <li><a href="message.html">代表挨拶</a></li>
+              <li><a href="access.html">アクセス</a></li>
+            </ul>
+          </div>
+          <a href="work.html" class="about-page__side-nav-item">WORK</a>
+          <a href="index.html#service" class="about-page__side-nav-item">SERVICE</a>
+          <a href="news.html" class="about-page__side-nav-item">NEWS</a>
+        </nav>
+      </aside>
 
-    </article>
-
-    <nav class="work-detail__nav" aria-label="前後の制作実績">
-      <div class="work-detail__nav-inner">
-        <a href="#" class="work-detail__pager work-detail__pager--prev">BACK</a>
-        <a href="work.html" class="c-sub-btn c-sub-btn--en work-detail__list-back">WORK LIST</a>
-        <a href="#" class="work-detail__pager work-detail__pager--next">NEXT</a>
-        <a href="index.html" class="c-sub-btn work-detail__top-back">TOPにもどる</a>
-      </div>
-    </nav>
+    </div>
 
   </main>
 
@@ -196,7 +193,7 @@
 
           <div class="footer__nav">
             <div class="footer__col">
-              <a href="index.html#about" class="footer__title">ABOUT</a>
+              <a href="about.html" class="footer__title">ABOUT</a>
               <ul>
                 <li><a href="#">会社について</a></li>
                 <li><a href="#">仕事の流れ</a></li>
@@ -215,7 +212,7 @@
               <ul>
                 <li><a href="#">会社概要</a></li>
                 <li><a href="#">企業理念</a></li>
-                <li><a href="#">アクセス</a></li>
+                <li><a href="access.html">アクセス</a></li>
               </ul>
             </div>
 

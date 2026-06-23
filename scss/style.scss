@@ -19,6 +19,7 @@
 @use "component/more-link";
 @use "component/side-nav";
 @use "component/drawer";
+@use "component/pagination";
 
 @use "project/hero";
 @use "project/about";
@@ -30,6 +31,14 @@
 
 @use "page/work-archive";
 @use "page/work-detail";
+@use "page/news-archive";
+@use "page/news-detail";
+@use "page/about-page";
+@use "page/recruit-page";
+@use "page/access-page";
+@use "page/message-page";
+@use "page/philosophy-page";
+@use "page/privacy-page";
 
 @use "foundation/animation";
 

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業理念 | ABOUT US | DELIGHT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Montserrat:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="page-philosophy">
+
+  <div class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="メニュー">
+    <div class="drawer__backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <div class="drawer__panel" id="drawerPanel" tabindex="-1">
+      <nav class="drawer__nav" aria-label="ドロワーメニュー">
+        <ul class="drawer__list">
+          <li class="drawer__item">
+            <a href="about.html" class="drawer__link">
+              <span class="drawer__en">ABOUT US</span>
+              <span class="drawer__ja">会社概要</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="work.html" class="drawer__link">
+              <span class="drawer__en">WORKS</span>
+              <span class="drawer__ja">制作実績</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="index.html#service" class="drawer__link">
+              <span class="drawer__en">SERVICE</span>
+              <span class="drawer__ja">できること</span>
+            </a>
+          </li>
+          <li class="drawer__item">
+            <a href="news.html" class="drawer__link">
+              <span class="drawer__en">NEWS</span>
+              <span class="drawer__ja">お知らせ</span>
+            </a>
+          </li>
+          <li class="drawer__item drawer__item--contact">
+            <a href="index.html#contact" class="drawer__link drawer__link--contact">
+              <img src="images/contact.png" alt="お問い合わせ">
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <header class="header is-scrolled" id="header">
+    <div class="header__inner">
+      <h1 class="header__logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="DELIGHT">
+        </a>
+      </h1>
+      <nav class="header__nav" id="globalNav" aria-label="メインナビゲーション">
+        <ul class="header__nav-list">
+          <li>
+            <a href="about.html" class="is-current" aria-current="page">ABOUT US</a>
+          </li>
+          <li>
+            <a href="work.html">WORK</a>
+          </li>
+          <li>
+            <a href="index.html#service">SERVICE</a>
+          </li>
+          <li>
+            <a href="news.html">NEWS</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="index.html#contact" class="header__btn header__btn--contact">
+          <img
+            src="images/header-contact.svg"
+            alt=""
+            class="header__btn-icon"
+          >
+          CONTACT
+        </a>
+        <a href="recruit.html" class="header__btn header__btn--recruit">
+          RECRUIT
+        </a>
+      </div>
+      <button
+        class="header__hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="drawerPanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="philosophy-page" id="top">
+
+    <div class="philosophy-page__breadcrumb">
+      <a href="index.html">TOP</a>
+      <span>&gt;</span>
+      <a href="about.html">ABOUT US</a>
+      <span>&gt;</span>
+      <span>企業理念</span>
+    </div>
+
+    <div class="philosophy-page__layout">
+
+      <div class="philosophy-page__content">
+
+        <div class="philosophy-page__hero c-page-hero">
+          <h1 class="c-page-title __mini">PHILOSOPHY</h1>
+          <p class="c-page-subtitle __mini">企業理念</p>
+        </div>
+
+        <div class="philosophy-page__intro">
+          <h2 class="philosophy-page__intro-heading">彩り豊かな未来へ</h2>
+          <div class="philosophy-page__intro-body">
+            <p>私たちが目指す「DELIGHT」は、<br />
+              お客様がものづくりを心から楽しむこと、<br />
+              そして私たちも一緒になって楽しむことです。<br />
+              純粋にものづくりに向き合い続けることを大切に。
+            </p>
+            <p>
+              その姿勢が想いを未来へとつなぎ、<br />
+              これまで培ってきた経験や技術と掛け合わさることで、<br />
+              人の心に温かく届く「DELIGHT」を生み出せる。<br />
+              そして「DELIGHT」は、さまざまな形で人に寄り添い、<br /> 
+              一人ひとりの日常に彩りと輝きを届けます。
+            </p>
+          </div>
+        </div>
+
+        <div class="philosophy-page__sections">
+
+          <section class="philosophy-page__section">
+            <div class="philosophy-page__section-heading">
+              <p class="philosophy-page__section-en">1. OUR OWN DELIGHT</p>
+              <p class="philosophy-page__section-ja">私たち自身の DELIGHT</p>
+            </div>
+            <div class="philosophy-page__section-body">
+              <p>DELIGHTは、まず私たち自身がものづくりを楽しむことから始まります。<br />お客様からいただいた想いに真摯に向き合い、考え、悩み、挑戦しながら形にしていく。その過程を心から楽しむことで、新しい発想や価値が生まれると考えています。<br />楽しむことを忘れず、常に好奇心を持って挑戦し続ける姿勢こそが、私たちのものづくりの原点です。</p>
+            </div>
+          </section>
+
+          <section class="philosophy-page__section">
+            <div class="philosophy-page__section-heading">
+              <p class="philosophy-page__section-en">2. CUSTOMER DELIGHT</p>
+              <p class="philosophy-page__section-ja">お客様の DELIGHT</p>
+            </div>
+            <div class="philosophy-page__section-body">
+              <p>私たちは、私たち自身が心から楽しみながら生み出したものは、きっとお客様やその先にいる誰かの喜びにつながると信じています。<br />だからこそ、単に商品をつくるのではなく、一つ一つの想いや目的に向き合いながら、企画・デザイン・製造に取り組んでいます。<br />ものづくりを通じて感動や笑顔を生み出し、お客様とともに喜びを分かち合うこと。<br />それが私たちの目指すDELIGHTです。</p>
+            </div>
+          </section>
+
+          <section class="philosophy-page__section">
+            <div class="philosophy-page__section-heading">
+              <p class="philosophy-page__section-en">3. DELIGHT WILL EXPAND &nbsp;&nbsp;&nbsp;&nbsp;INTO THE FUTURE.</p>
+              <p class="philosophy-page__section-ja">未来へ広がる DELIGHT</p>
+            </div>
+            <div class="philosophy-page__section-body">
+              <p>ひとつのDELIGHTは、<br />さらに新しいDELIGHTへとつながっていきます。<br />手に取った人の笑顔、心が動く体験、誰かとの会話や思い出。その積み重ねが人と人とをつなぎ、日常に彩りを与えていきます。<br />私たちは、ものづくりを通じて生まれる喜びの輪を広げ、一人ひとりがより豊かに輝ける未来を創り続けます。</p>
+            </div>
+          </section>
+
+        </div>
+
+        <div class="philosophy-page__actions">
+          <a href="index.html" class="c-sub-btn philosophy-page__top-back">TOPにもどる</a>
+        </div>
+
+      </div>
+
+      <aside class="philosophy-page__side-nav" aria-label="セクションナビゲーション">
+        <nav class="philosophy-page__side-nav-inner">
+          <div class="philosophy-page__side-nav-group is-active">
+            <p class="philosophy-page__side-nav-title">ABOUT US</p>
+            <ul class="philosophy-page__side-nav-list">
+              <li><a href="#">会社概要</a></li>
+              <li><a href="philosophy.html" class="is-current" aria-current="page">企業理念</a></li>
+              <li><a href="message.html">代表挨拶</a></li>
+              <li><a href="access.html">アクセス</a></li>
+            </ul>
+          </div>
+          <a href="work.html" class="philosophy-page__side-nav-item">WORK</a>
+          <a href="index.html#service" class="philosophy-page__side-nav-item">SERVICE</a>
+          <a href="news.html" class="philosophy-page__side-nav-item">NEWS</a>
+        </nav>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+
+      <div class="footer__layout">
+
+        <div class="footer__left">
+          <a href="index.html" class="footer__logo">
+            <img src="images/logo.png" alt="DELIGHT">
+          </a>
+
+          <p class="footer__index">INDEX</p>
+          <div class="footer__line"></div>
+
+          <div class="footer__nav">
+            <div class="footer__col">
+              <a href="about.html" class="footer__title">ABOUT</a>
+              <ul>
+                <li><a href="#">会社について</a></li>
+                <li><a href="#">仕事の流れ</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="news.html" class="footer__title">NEWS</a>
+              <ul>
+                <li><a href="news.html">お知らせ一覧</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="index.html#company" class="footer__title">COMPANY</a>
+              <ul>
+                <li><a href="#">会社概要</a></li>
+                <li><a href="#">企業理念</a></li>
+                <li><a href="access.html">アクセス</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="work.html" class="footer__title">WORK</a>
+              <ul>
+                <li><a href="work.html">業務実績一覧</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__col">
+              <a href="index.html#service" class="footer__title">SERVICE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__buttons">
+          <a href="recruit.html" class="footer__button footer__button--recruit">RECRUIT</a>
+          <a href="index.html#contact" class="footer__button footer__button--contact">CONTACT</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer__copyright">
+      <p>&copy; DELIGHT All rights reserved</p>
+    </div>
+  </footer>
+
+  <a href="index.html#contact" class="c-float-contact" aria-label="お問い合わせ">
+    <img src="images/mail-blue.svg" alt="">
+  </a>
+
+  <a href="#top" id="pageTop" class="page-top" aria-label="ページ上部へ戻る">
+    <svg class="page-top__icon" viewBox="0 0 52 52" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <circle class="page-top__circle" cx="26" cy="26" r="24" />
+      <path class="page-top__arrow" d="M26 19 L16 29 M26 19 L36 29" />
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

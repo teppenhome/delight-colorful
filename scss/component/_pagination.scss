@@ -1,0 +1,93 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// 下層ページ共通ページネーション（BACK / 番号 / NEXT）
+.c-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 40px;
+  font-family: $font-en;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+
+  @include sp {
+    gap: 16px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+
+  a {
+    color: $color-text-sub;
+    opacity: 1;
+    transition: color 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      color: $color-primary;
+    }
+
+    &[aria-current="page"] {
+      color: $color-primary;
+      font-weight: 700;
+      pointer-events: none;
+    }
+  }
+
+  > a:first-child,
+  > a:last-child {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: $color-text;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  $pagination-arrow-color: #333;
+  $pagination-arrow-line: 1.5px;
+
+  > a:first-child::after,
+  > a:last-child::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 10px;
+    border-bottom: $pagination-arrow-line solid $pagination-arrow-color;
+    flex-shrink: 0;
+  }
+
+  > a:first-child::after {
+    border-left: 2px solid $pagination-arrow-color;
+    transform: skew(-45deg);
+  }
+
+  > a:last-child::after {
+    border-right: 2px solid $pagination-arrow-color;
+    transform: skew(45deg);
+  }
+
+  ol {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include sp {
+      gap: 12px;
+    }
+  }
+
+  li a {
+    display: block;
+    min-width: 1em;
+    text-align: center;
+  }
+}

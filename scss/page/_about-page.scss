@@ -1,0 +1,259 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  ABOUT PAGE（固定ページ専用）
+//  トップの .about セクションとは独立した命名
+// ============================================================
+
+body.page-about {
+  .header__nav-list li a.is-current {
+    color: $color-primary;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.about-page {
+  padding: 140px 0 100px;
+  background: $color-white;
+
+  @include sp {
+    padding: 110px 0 72px;
+  }
+
+  // ── パンくず ──────────────────────────────────────
+  &__breadcrumb {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+    font-family: $font-en;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+
+    @include sp {
+      margin-bottom: 28px;
+      padding: 0 20px;
+      font-size: 12px;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    span {
+      margin: 0 8px;
+    }
+  }
+
+  // ── レイアウト ──────────────────────────────────
+  &__layout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include tab {
+      flex-direction: column;
+      gap: 48px;
+      padding: 0 20px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    min-width: 0;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  // ── 本文 ────────────────────────────────────────
+  &__body {
+    margin: 0 auto 48px;
+    text-align: center;
+    max-width: 555px;
+    width: 100%;
+
+    @include sp {
+      margin-bottom: 36px;
+    }
+
+    p {
+      margin: 0 0 1.8em;
+      font-size: 16px;
+      line-height: 1.8;
+      color: $color-text;
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // ── 下層ページリンク ────────────────────────────
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 6px;
+    width: 100%;
+    margin: 0;
+
+    @include sp {
+      column-gap: 10px;
+      row-gap: 10px;
+    }
+  }
+
+  &__link-btn {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 8px 44px;
+    border: 1.5px solid #343434;
+    border-radius: 0;
+    background: $color-white;
+    font-family: $font-ja;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: $color-text;
+    text-decoration: none;
+    opacity: 1;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    @include sp {
+      min-height: 52px;
+      padding: 12px 40px;
+      font-size: 15px;
+    }
+
+    &:hover {
+      opacity: 1;
+      background: $color-text;
+      border-color: $color-text;
+      color: $color-white;
+
+      .about-page__link-btn-icon {
+        background: $color-white;
+        color: $color-text;
+      }
+    }
+  }
+
+  &__link-btn-text {
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  &__link-btn-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: $color-text;
+    color: $color-white;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  // ── サイドナビ ──────────────────────────────────
+  &__side-nav {
+    flex-shrink: 0;
+    width: 140px;
+    padding-top: 100px;
+
+    @include tab {
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+
+  &__side-nav-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  &__side-nav-group {
+    &.is-active {
+      .about-page__side-nav-title {
+        color: $color-primary;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__side-nav-title {
+    margin: 0 0 12px;
+    font-family: $font-en;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: $color-text;
+    line-height: 1.4;
+  }
+
+  &__side-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    a {
+      font-size: 13px;
+      font-weight: 400;
+      color: $color-text-sub;
+      line-height: 1.5;
+      opacity: 1;
+      transition: color 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__side-nav-item {
+    font-family: $font-en;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: $color-text;
+    line-height: 1.4;
+    opacity: 1;
+    transition: color 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      color: $color-primary;
+    }
+  }
+}

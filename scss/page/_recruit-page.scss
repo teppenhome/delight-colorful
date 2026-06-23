@@ -1,0 +1,104 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+// ============================================================
+//  RECRUIT PAGE（固定ページ専用）
+// ============================================================
+
+.recruit-page {
+  padding: 140px 0 100px;
+  background: $color-white;
+
+  @include sp {
+    padding: 110px 0 72px;
+  }
+
+  // ── パンくず ──────────────────────────────────────
+  &__breadcrumb {
+    max-width: $container-width;
+    margin: 0 auto 40px;
+    padding: 0 40px;
+    font-family: $font-en;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: $color-primary;
+
+    @include sp {
+      margin-bottom: 28px;
+      padding: 0 20px;
+      font-size: 12px;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    span {
+      margin: 0 8px;
+    }
+  }
+
+  // ── 採用メッセージボックス ────────────────────────
+  &__hero {
+    padding: 0 40px;
+
+    @include sp {
+      padding: 0 20px;
+    }
+  }
+
+  &__message {
+    max-width: 900px;
+    margin: 0 auto 56px;
+    padding: 56px 48px;
+    background: rgba(15, 101, 163, 0.1);
+    border-radius: 16px;
+    text-align: center;
+
+    @include sp {
+      margin-bottom: 40px;
+      padding: 40px 24px;
+      border-radius: 12px;
+    }
+
+    p {
+      margin: 0 0 1em;
+      font-size: 15px;
+      line-height: 2;
+      color: $color-text;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__message-lead {
+    font-size: clamp(18px, 2.5vw, 22px) !important;
+    font-weight: 700;
+    line-height: 1.8 !important;
+    margin-bottom: 1.2em !important;
+  }
+
+  // ── TOPへ戻る ────────────────────────────────────
+  &__back-to-top {
+    display: flex;
+    justify-content: center;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 40px;
+
+    @include sp {
+      padding: 0 20px;
+    }
+  }
+
+  &__top-back {
+    width: auto;
+  }
+}

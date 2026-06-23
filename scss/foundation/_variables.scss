@@ -15,6 +15,7 @@ $color-tag-bg:     #e3eaf7;
 
 $font-en:     'Inter', sans-serif;
 $font-ja:     'Noto Sans JP', sans-serif;
+$font-sub: "Montserrat", sans-serif;
 
 $breakpoint-sp:  768px;
 $breakpoint-tab: 1120px;
@@ -22,3 +23,7 @@ $breakpoint-lg:  1440px;
 
 $container-width: 1100px;
 $section-pad-v:   80px;
+
+.font-sub {
+  font-family: $font-sub;
+}

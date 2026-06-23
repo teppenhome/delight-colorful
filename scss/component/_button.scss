@@ -1,5 +1,8 @@
+@use "sass:math";
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
 
-// 汎用ボタンコンポーネント
+// トップページ用ボタン（下層ページでは使用しない）
 .c-more-btn {
   position: relative;
   display: inline-flex;
@@ -44,6 +47,221 @@
     svg {
       width: 13px;
       height: 13px;
+    }
+  }
+}
+
+// 下層ページ共通ボタン
+.c-sub-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 295px;
+  padding: 6px 32px;
+  border: 2px solid $color-text;
+  border-radius: 0;
+  background: $color-white;
+  font-family: $font-ja;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: $color-text;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  @include sp {
+    min-width: 0;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: $color-text;
+    border-color: $color-text;
+    color: $color-white;
+  }
+
+  &--en {
+    font-family: $font-en;
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+// 下層ページ共通ページャー（BACK / NEXT）
+.c-sub-pager {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-en;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-text;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  @include sp {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &.is-disabled {
+    color: $color-text-sub;
+    pointer-events: none;
+  }
+
+  &__arrow {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-left: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+  }
+
+  &--prev &__arrow {
+    transform: rotate(45deg);
+  }
+
+  &--next &__arrow {
+    transform: rotate(-135deg);
+  }
+}
+
+// 下層ページ共通・右固定ボタン（お問い合わせ / ページトップ）
+$float-btn-size: 72px;
+$float-btn-stroke: 1.5px;
+$float-btn-gap: 20px;
+$float-btn-inset: 32px;
+$float-btn-svg-viewbox: 52;
+$float-btn-svg-stroke: math.div($float-btn-svg-viewbox, $float-btn-size) * 1.5;
+
+.c-float-contact {
+  position: fixed;
+  right: $float-btn-inset;
+  bottom: calc(#{$float-btn-inset} + #{$float-btn-size} + #{$float-btn-gap});
+  z-index: 100;
+  box-sizing: border-box;
+  width: $float-btn-size;
+  height: $float-btn-size;
+  border-radius: 50%;
+  border: $float-btn-stroke solid $color-primary;
+  background: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  img {
+    width: 36px;
+    height: auto;
+    display: block;
+    transform: translateY(-1px);
+    transition: filter 0.2s ease;
+  }
+
+  &:hover {
+    background: $color-primary;
+    border-color: $color-primary;
+  }
+
+  @include sp {
+    $float-btn-size-sp: 72px;
+    $float-btn-gap-sp: 16px;
+    $float-btn-inset-sp: 20px;
+
+    right: $float-btn-inset-sp;
+    bottom: calc(#{$float-btn-inset-sp} + #{$float-btn-size-sp} + #{$float-btn-gap-sp});
+    width: $float-btn-size-sp;
+    height: $float-btn-size-sp;
+
+    img {
+      width: 36px;
+      height: auto;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.page-about,
+.page-access,
+.page-message,
+.page-philosophy,
+.page-privacy,
+.page-recruit,
+.page-news,
+.page-news-detail,
+.page-work,
+.page-work-detail {
+  .page-top {
+    right: $float-btn-inset;
+    bottom: $float-btn-inset;
+    box-sizing: border-box;
+    width: $float-btn-size;
+    height: $float-btn-size;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    @include sp {
+      $float-btn-size-sp: 72px;
+      $float-btn-inset-sp: 20px;
+
+      right: $float-btn-inset-sp;
+      bottom: $float-btn-inset-sp;
+      width: $float-btn-size-sp;
+      height: $float-btn-size-sp;
+    }
+  }
+
+  .page-top__icon {
+    display: block;
+    width: $float-btn-size;
+    height: $float-btn-size;
+    transform: translateY(-1px);
+
+    @include sp {
+      width: 72px;
+      height: 72px;
+    }
+  }
+
+  .page-top__circle {
+    fill: $color-white;
+    stroke: $color-primary;
+    stroke-width: $float-btn-svg-stroke;
+    transition: fill 0.2s ease, stroke 0.2s ease;
+  }
+
+  .page-top__arrow {
+    fill: none;
+    stroke: $color-primary;
+    stroke-width: $float-btn-svg-stroke;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease;
+  }
+
+  .page-top:hover {
+    opacity: 1;
+
+    .page-top__circle {
+      fill: $color-primary;
+      stroke: $color-primary;
+    }
+
+    .page-top__arrow {
+      stroke: $color-white;
     }
   }
 }

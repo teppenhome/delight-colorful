@@ -185,7 +185,6 @@ body.page-about {
   &__side-nav {
     flex-shrink: 0;
     width: 140px;
-    padding-top: 100px;
 
     @include tab {
       width: 100%;

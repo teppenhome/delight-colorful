@@ -1305,7 +1305,7 @@ body.is-menu-open {
 
 .hero {
   position: relative;
-  background-color: #117ABE;
+  background-color: #005AAB;
   overflow-x: clip;
 }
 .hero__bg {
@@ -1321,7 +1321,7 @@ body.is-menu-open {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #117ABE;
+  background-color: #005AAB;
 }
 .hero__image {
   display: block;
